@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="suspect"
+            type="it.zagoli.cluehelp.domain.GameObject" />
+
+        <variable
+            name="clickListener"
+            type="it.zagoli.cluehelp.ui.suspects.SuspectClickListener" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout style="@style/listElementRecyclerView">
+
+        <TextView
+            android:id="@+id/suspect_name"
+            style="@style/textListElementRecyclerView"
+            android:text="@{suspect.name}"
+            app:layout_constraintBaseline_toBaselineOf="@id/remove_suspect_button"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Green" />
+
+        <ImageButton
+            android:id="@+id/remove_suspect_button"
+            style="@style/removeListElementRecyclerView"
+            android:contentDescription="@string/remove_suspect_image_description"
+            android:onClick="@{() -> clickListener.onClick(suspect)}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_baseline_clear_24" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

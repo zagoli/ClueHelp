@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="inputDataText">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginStart">@dimen/small_margin</item>
+        <item name="android:layout_marginTop">@dimen/normal_margin</item>
+        <item name="android:layout_marginEnd">@dimen/small_margin</item>
+        <item name="android:ems">10</item>
+        <item name="android:inputType">textPersonName</item>
+    </style>
+
+    <style name="initialDataRecyclerView">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="android:layout_marginStart">@dimen/small_margin</item>
+        <item name="android:layout_marginTop">@dimen/normal_margin</item>
+        <item name="android:layout_marginEnd">@dimen/small_margin</item>
+        <item name="android:layout_marginBottom">@dimen/normal_margin</item>
+    </style>
+
+    <style name="nextPageFab">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">bottom|end</item>
+        <item name="android:layout_margin">@dimen/normal_margin</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+    </style>
+
+    <style name="listElementRecyclerView">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">@dimen/small_margin</item>
+        <item name="android:layout_marginBottom">@dimen/small_margin</item>
+    </style>
+
+    <style name="textListElementRecyclerView">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginStart">@dimen/small_margin</item>
+        <item name="android:textSize">@dimen/list_element_size</item>
+    </style>
+
+    <style name="removeListElementRecyclerView">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginEnd">@dimen/small_margin</item>
+    </style>
+</resources>

@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">ClueHelp</string>
+    <string name="start_button_text">Start!</string>
+    <string name="welcome_image_description">Welcome image</string>
+    <string name="insert_players_fragment_label">Insert players</string>
+    <string name="insert_new_player_hint_text">Player</string>
+    <string name="next_page_fab_description">next</string>
+    <string name="insert_new_suspects_hint_text">Suspect</string>
+    <string name="insert_suspects_fragment_label">Insert suspects</string>
+    <string name="at_least_two_players_needed">You need to insert at least two players to continue!</string>
+    <string name="remove_player_image_description">Remove player</string>
+    <string name="remove_suspect_image_description">Remove suspect</string>
+    <string name="order_insertion_players">insert players starting from you, and going clockwise</string>
+</resources>

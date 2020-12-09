@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/welcomeFragment">
+
+    <fragment
+        android:id="@+id/welcomeFragment"
+        android:name="it.zagoli.cluehelp.ui.welcome.WelcomeFragment"
+        android:label="@string/app_name"
+        tools:layout="@layout/welcome_fragment">
+        <action
+            android:id="@+id/action_welcomeFragment_to_insertPlayersFragment"
+            app:destination="@id/insertPlayersFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/insertPlayersFragment"
+        android:name="it.zagoli.cluehelp.ui.players.InsertPlayersFragment"
+        android:label="@string/insert_players_fragment_label"
+        tools:layout="@layout/insert_players_fragment" >
+        <action
+            android:id="@+id/action_insertPlayersFragment_to_insertSuspectsFragment"
+            app:destination="@id/insertSuspectsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/insertSuspectsFragment"
+        android:name="it.zagoli.cluehelp.ui.suspects.InsertSuspectsFragment"
+        android:label="@string/insert_suspects_fragment_label"
+        tools:layout="@layout/insert_suspects_fragment" />
+</navigation>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="it.zagoli.cluehelp.ui.players.InsertPlayersViewModel" />
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/coordinator_players"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <EditText
+                android:id="@+id/new_player_text"
+                style="@style/inputDataText"
+                android:hint="@string/insert_new_player_hint_text"
+                android:imeOptions="actionGo"
+                android:importantForAutofill="no"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/players_list"
+                style="@style/initialDataRecyclerView"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/insert_players_help_text"
+                tools:itemCount="6"
+                tools:listitem="@layout/insert_player_list_element" />
+
+            <TextView
+                android:id="@+id/insert_players_help_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/small_margin"
+                android:text="@string/order_insertion_players"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/new_player_text" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/player_next_page_fab"
+            style="@style/nextPageFab"
+            android:contentDescription="@string/next_page_fab_description"
+            android:onClick="@{() -> viewModel.onNavigateToInsertSuspects()}"
+            android:src="@drawable/ic_baseline_navigate_next_24"
+            tools:layout_editor_absoluteX="308dp"
+            tools:layout_editor_absoluteY="637dp" />
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

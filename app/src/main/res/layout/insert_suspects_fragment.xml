@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <EditText
+                android:id="@+id/new_suspect_text"
+                style="@style/inputDataText"
+                android:hint="@string/insert_new_suspects_hint_text"
+                android:imeOptions="actionGo"
+                android:importantForAutofill="no"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/suspectsList"
+                style="@style/initialDataRecyclerView"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/new_suspect_text"
+                tools:listitem="@layout/insert_suspect_list_element"
+                tools:itemCount="6"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/suspect_next_page_fab"
+            style="@style/nextPageFab"
+            android:contentDescription="@string/next_page_fab_description"
+            android:src="@drawable/ic_baseline_navigate_next_24"
+            tools:layout_editor_absoluteX="308dp"
+            tools:layout_editor_absoluteY="637dp" />
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>
