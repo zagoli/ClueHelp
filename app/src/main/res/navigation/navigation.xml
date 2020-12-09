@@ -27,5 +27,14 @@
         android:id="@+id/insertSuspectsFragment"
         android:name="it.zagoli.cluehelp.ui.suspects.InsertSuspectsFragment"
         android:label="@string/insert_suspects_fragment_label"
-        tools:layout="@layout/insert_suspects_fragment" />
+        tools:layout="@layout/insert_suspects_fragment" >
+        <action
+            android:id="@+id/action_insertSuspectsFragment_to_insertWeaponsFragment"
+            app:destination="@id/insertWeaponsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/insertWeaponsFragment"
+        android:name="it.zagoli.cluehelp.ui.weapons.InsertWeaponsFragment"
+        android:label="@string/insert_weapons_fragment_label"
+        tools:layout="@layout/insert_weapons_fragment"/>
 </navigation>

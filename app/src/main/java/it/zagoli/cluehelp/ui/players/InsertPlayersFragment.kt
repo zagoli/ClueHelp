@@ -5,15 +5,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
-import androidx.navigation.fragment.findNavController
 import com.google.android.material.snackbar.Snackbar
 import it.zagoli.cluehelp.MainActivity
 import it.zagoli.cluehelp.R
 import it.zagoli.cluehelp.databinding.InsertPlayersFragmentBinding
+import it.zagoli.cluehelp.domain.Player
+import it.zagoli.cluehelp.ui.gameObjectsUtils.NavigationStatus
 import timber.log.Timber
 
 class InsertPlayersFragment : Fragment() {
@@ -49,17 +49,15 @@ class InsertPlayersFragment : Fragment() {
         })
 
         //navigation to insert suspects
-        viewModel.navigateInsertSuspectEvent.observe(viewLifecycleOwner, {shouldNavigate ->
+        viewModel.navigateInsertSuspectsEvent.observe(viewLifecycleOwner, { shouldNavigate ->
             when (shouldNavigate) {
-                InsertPlayersViewModel.NavigationStatus.OK -> {
-                    //we save temporarily the players list in the main activity companion object
-                    MainActivity.players = viewModel.players.value!! //at this point, the value of viewModel.players is certainly not null
+                NavigationStatus.OK -> {
                     binding.root.findNavController().navigate(InsertPlayersFragmentDirections.actionInsertPlayersFragmentToInsertSuspectsFragment())
                     viewModel.navigateToInsertSuspectsComplete()
                     Timber.i("navigation to insert suspects.")
-                    Timber.i("players: ${MainActivity.players.map{p -> p.name}}")
+                    Timber.i("players: ${MainActivity.players.map(Player::name)}")
                 }
-                InsertPlayersViewModel.NavigationStatus.IMPOSSIBLE -> {
+                NavigationStatus.IMPOSSIBLE -> {
                     Snackbar.make(
                         binding.root,
                         resources.getString(R.string.at_least_two_players_needed),

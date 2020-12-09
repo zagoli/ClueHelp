@@ -7,8 +7,10 @@
     <string name="next_page_fab_description">next</string>
     <string name="insert_new_suspects_hint_text">Suspect</string>
     <string name="insert_suspects_fragment_label">Insert suspects</string>
-    <string name="at_least_two_players_needed">You need to insert at least two players to continue!</string>
-    <string name="remove_player_image_description">Remove player</string>
-    <string name="remove_suspect_image_description">Remove suspect</string>
+    <string name="at_least_two_players_needed">Please, insert at least two players to proceed.</string>
     <string name="order_insertion_players">insert players starting from you, and going clockwise</string>
+    <string name="remove_image_description">Remove</string>
+    <string name="insert_new_weapon_hint_text">Weapon</string>
+    <string name="at_least_six_weapons_needed">Please, insert at least six suspects to proceed.</string>
+    <string name="insert_weapons_fragment_label">Insert weapons</string>
 </resources>

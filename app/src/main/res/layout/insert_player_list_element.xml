@@ -27,7 +27,7 @@
         <ImageButton
             android:id="@+id/remove_player_button"
             style="@style/removeListElementRecyclerView"
-            android:contentDescription="@string/remove_player_image_description"
+            android:contentDescription="@string/remove_image_description"
             android:onClick="@{() -> clickListener.onClick(player)}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

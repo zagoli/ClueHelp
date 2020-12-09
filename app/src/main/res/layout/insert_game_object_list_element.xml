@@ -6,30 +6,30 @@
     <data>
 
         <variable
-            name="suspect"
+            name="gameObject"
             type="it.zagoli.cluehelp.domain.GameObject" />
 
         <variable
             name="clickListener"
-            type="it.zagoli.cluehelp.ui.suspects.SuspectClickListener" />
+            type="it.zagoli.cluehelp.ui.gameObjectsUtils.GameObjectClickListener" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout style="@style/listElementRecyclerView">
 
         <TextView
-            android:id="@+id/suspect_name"
+            android:id="@+id/game_object_name"
             style="@style/textListElementRecyclerView"
-            android:text="@{suspect.name}"
-            app:layout_constraintBaseline_toBaselineOf="@id/remove_suspect_button"
+            android:text="@{gameObject.name}"
+            app:layout_constraintBaseline_toBaselineOf="@id/remove_game_object_button"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:text="Green" />
+            tools:text="Green/Rope/Garage" />
 
         <ImageButton
-            android:id="@+id/remove_suspect_button"
+            android:id="@+id/remove_game_object_button"
             style="@style/removeListElementRecyclerView"
-            android:contentDescription="@string/remove_suspect_image_description"
-            android:onClick="@{() -> clickListener.onClick(suspect)}"
+            android:contentDescription="@string/remove_image_description"
+            android:onClick="@{() -> clickListener.onClick(gameObject)}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"

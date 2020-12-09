@@ -3,12 +3,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <data>
-        <variable
-            name="viewModel"
-            type="it.zagoli.cluehelp.ui.suspects.InsertSuspectsViewModel" />
-    </data>
-
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -18,9 +12,9 @@
             android:layout_height="match_parent">
 
             <EditText
-                android:id="@+id/new_suspect_text"
+                android:id="@+id/new_weapon_text"
                 style="@style/inputDataText"
-                android:hint="@string/insert_new_suspects_hint_text"
+                android:hint="@string/insert_new_weapon_hint_text"
                 android:imeOptions="actionGo"
                 android:importantForAutofill="no"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -28,23 +22,22 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/suspectsList"
+                android:id="@+id/weaponsList"
                 style="@style/initialDataRecyclerView"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/new_suspect_text"
+                app:layout_constraintTop_toBottomOf="@id/new_weapon_text"
                 tools:listitem="@layout/insert_game_object_list_element"
-                tools:itemCount="6"/>
+                tools:itemCount="5"/>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/suspect_next_page_fab"
+            android:id="@+id/weapon_next_page_fab"
             style="@style/nextPageFab"
             android:contentDescription="@string/next_page_fab_description"
-            android:onClick="@{() -> viewModel.onNavigateToInsertWeapons()}"
             android:src="@drawable/ic_baseline_navigate_next_24"
             tools:layout_editor_absoluteX="308dp"
             tools:layout_editor_absoluteY="637dp" />

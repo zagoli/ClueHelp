@@ -3,8 +3,10 @@ package it.zagoli.cluehelp.ui.players
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import it.zagoli.cluehelp.MainActivity
 import it.zagoli.cluehelp.domain.Player
 import it.zagoli.cluehelp.extensions.MutableLiveList
+import it.zagoli.cluehelp.ui.gameObjectsUtils.NavigationStatus
 import timber.log.Timber
 
 class InsertPlayersViewModel : ViewModel() {
@@ -21,15 +23,15 @@ class InsertPlayersViewModel : ViewModel() {
         get() = _players
 
     /**
-     * backing property for [navigateInsertSuspectEvent]
+     * backing property for [navigateInsertSuspectsEvent]
      */
-    private val _navigateInsertSuspectEvent = MutableLiveData<NavigationStatus>()
+    private val _navigateInsertSuspectsEvent = MutableLiveData<NavigationStatus>()
 
     /**
      * navigation event. We should navigate only if there are at least two players
      */
-    val navigateInsertSuspectEvent: MutableLiveData<NavigationStatus>
-        get() = _navigateInsertSuspectEvent
+    val navigateInsertSuspectsEvent: MutableLiveData<NavigationStatus>
+        get() = _navigateInsertSuspectsEvent
 
     /**
      * call when you want to navigate to insert suspect fragment.
@@ -37,9 +39,12 @@ class InsertPlayersViewModel : ViewModel() {
      */
     fun onNavigateToInsertSuspects() {
         if(_players.value!!.size > 1) {
-            _navigateInsertSuspectEvent.value = NavigationStatus.OK
+            //we save temporarily the players list in the main activity companion object
+            //at this point, the value of players is certainly not null
+            MainActivity.players = players.value!!
+            _navigateInsertSuspectsEvent.value = NavigationStatus.OK
         } else {
-            _navigateInsertSuspectEvent.value = NavigationStatus.IMPOSSIBLE
+            _navigateInsertSuspectsEvent.value = NavigationStatus.IMPOSSIBLE
         }
     }
 
@@ -47,7 +52,7 @@ class InsertPlayersViewModel : ViewModel() {
      * call after the navigation
      */
     fun navigateToInsertSuspectsComplete() {
-        _navigateInsertSuspectEvent.value = NavigationStatus.DONE
+        _navigateInsertSuspectsEvent.value = NavigationStatus.DONE
     }
 
     /**
@@ -67,11 +72,5 @@ class InsertPlayersViewModel : ViewModel() {
     fun removePlayer(player: Player) {
         _players.removeElementFromList(player)
         Timber.i("player ${player.name} deleted")
-    }
-
-    enum class NavigationStatus {
-        OK, //trigger navigation
-        DONE, //navigation completed
-        IMPOSSIBLE //can't navigate, there are less than two players
     }
 }
