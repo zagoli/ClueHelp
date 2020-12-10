@@ -1,8 +1,11 @@
 package it.zagoli.cluehelp.ui.weapons
 
+import android.app.Application
+import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
+import it.zagoli.cluehelp.ClueHelpApplication
+import it.zagoli.cluehelp.R
 import it.zagoli.cluehelp.domain.GameObject
 import it.zagoli.cluehelp.domain.GameObjectType
 import it.zagoli.cluehelp.extensions.MutableLiveList
@@ -10,7 +13,7 @@ import it.zagoli.cluehelp.ui.TempStore
 import it.zagoli.cluehelp.ui.gameObjectsUtils.NavigationStatus
 import timber.log.Timber
 
-class InsertWeaponsViewModel : ViewModel() { //init block below!
+class InsertWeaponsViewModel(application: Application) : AndroidViewModel(application) { //init block below!
     /**
      * backing property for [weapons]
      */
@@ -84,12 +87,23 @@ class InsertWeaponsViewModel : ViewModel() { //init block below!
      * loads the default weapons in [_weapons]
      */
     private fun loadDefaultWeapons() {
-        val defaultWeapons = listOf("Rope", "Lead pipe", "Knife", "Wrench", "Candlestick", "Revolver")
-            .map { name ->
+        val defaultWeapons = getWeaponsNamesFromResources().map { name ->
                 GameObject(name, GameObjectType.WEAPON)
             }
         _weapons.addAll(defaultWeapons)
         Timber.i("default weapons loaded")
+    }
+
+    private fun getWeaponsNamesFromResources(): List<String> {
+        val app = getApplication<ClueHelpApplication>()
+        return listOf(
+            app.getString(R.string.Rope),
+            app.getString(R.string.Lead_pipe),
+            app.getString(R.string.Knife),
+            app.getString(R.string.Wrench),
+            app.getString(R.string.Candlestick),
+            app.getString(R.string.Revolver)
+        )
     }
 
     init {

@@ -1,12 +1,12 @@
 package it.zagoli.cluehelp.ui.weapons
 
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import com.google.android.material.snackbar.Snackbar
 import it.zagoli.cluehelp.R
@@ -17,7 +17,6 @@ import it.zagoli.cluehelp.ui.TempStore
 import it.zagoli.cluehelp.ui.gameObjectsUtils.GameObjectAdapter
 import it.zagoli.cluehelp.ui.gameObjectsUtils.GameObjectClickListener
 import it.zagoli.cluehelp.ui.gameObjectsUtils.NavigationStatus
-import it.zagoli.cluehelp.ui.suspects.InsertSuspectsFragmentDirections
 import timber.log.Timber
 
 class InsertWeaponsFragment : Fragment() {

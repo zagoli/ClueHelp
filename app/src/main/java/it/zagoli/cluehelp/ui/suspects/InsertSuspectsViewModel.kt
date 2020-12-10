@@ -1,8 +1,11 @@
 package it.zagoli.cluehelp.ui.suspects
 
+import android.app.Application
+import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
+import it.zagoli.cluehelp.ClueHelpApplication
+import it.zagoli.cluehelp.R
 import it.zagoli.cluehelp.domain.GameObject
 import it.zagoli.cluehelp.domain.GameObjectType
 import it.zagoli.cluehelp.extensions.MutableLiveList
@@ -10,7 +13,7 @@ import it.zagoli.cluehelp.ui.TempStore
 import it.zagoli.cluehelp.ui.gameObjectsUtils.NavigationStatus
 import timber.log.Timber
 
-class InsertSuspectsViewModel : ViewModel() { //init block below!
+class InsertSuspectsViewModel(application: Application) : AndroidViewModel(application) { //init block below!
     /**
      * backing property for [suspects]
      */
@@ -38,7 +41,7 @@ class InsertSuspectsViewModel : ViewModel() { //init block below!
      * it will trigger the event only if there are six or more suspects
      */
     fun onNavigateToInsertWeapons() {
-        if(_suspects.value!!.size > 5) {
+        if (_suspects.value!!.size > 5) {
             //we remove suspects that we may have added previously (we are here by back navigation)
             TempStore.gameObjects.removeIf { g -> g.type == GameObjectType.SUSPECT }
             //we save temporarily the suspects list in the main activity companion object
@@ -84,12 +87,23 @@ class InsertSuspectsViewModel : ViewModel() { //init block below!
      * loads the default suspects in [_suspects]
      */
     private fun loadDefaultSuspects() {
-        val defaultSuspects = listOf("Plum", "White", "Scarlet", "Green", "Mustard", "Peacock")
-            .map { name ->
-                GameObject(name, GameObjectType.SUSPECT)
-            }
+        val defaultSuspects = getSuspectsNamesFromResources().map { name ->
+            GameObject(name, GameObjectType.SUSPECT)
+        }
         _suspects.addAll(defaultSuspects)
         Timber.i("default suspects loaded")
+    }
+
+    private fun getSuspectsNamesFromResources(): List<String> {
+        val app = getApplication<ClueHelpApplication>()
+        return listOf(
+            app.getString(R.string.Plum),
+            app.getString(R.string.White),
+            app.getString(R.string.Scarlet),
+            app.getString(R.string.Green),
+            app.getString(R.string.Mustard),
+            app.getString(R.string.Peacock)
+        )
     }
 
     init {

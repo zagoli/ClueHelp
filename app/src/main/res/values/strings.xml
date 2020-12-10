@@ -16,4 +16,32 @@
     <string name="insert_weapons_fragment_label">Insert weapons</string>
     <string name="insert_new_room_hint_text">Room</string>
     <string name="insert_rooms_fragment_label">Insert rooms</string>
+
+    <!--Suspects-->
+    <string name="Plum">Plum</string>
+    <string name="White">White</string>
+    <string name="Scarlet">Scarlet</string>
+    <string name="Green">Green</string>
+    <string name="Mustard">Mustard</string>
+    <string name="Peacock">Peacock</string>
+
+    <!--Weapons-->
+    <string name="Rope">Rope</string>
+    <string name="Lead_pipe">Lead pipe</string>
+    <string name="Knife">Knife</string>
+    <string name="Wrench">Wrench</string>
+    <string name="Candlestick">Candlestick</string>
+    <string name="Revolver">Revolver</string>
+
+    <!--Rooms-->
+    <string name="Courtyard">Courtyard</string>
+    <string name="Game_Room">Game Room</string>
+    <string name="Study">Study</string>
+    <string name="Dining_Room">Dining Room</string>
+    <string name="Garage">Garage</string>
+    <string name="Living_Room">Living Room</string>
+    <string name="Kitchen">Kitchen</string>
+    <string name="Bedroom">Bedroom</string>
+    <string name="Bathroom">Bathroom</string>
+
 </resources>

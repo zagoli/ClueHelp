@@ -1,13 +1,11 @@
 package it.zagoli.cluehelp
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
 import it.zagoli.cluehelp.databinding.MainActivityBinding
-import it.zagoli.cluehelp.domain.GameObject
-import it.zagoli.cluehelp.domain.Player
 
 class MainActivity : AppCompatActivity() {
 
