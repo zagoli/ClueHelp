@@ -10,14 +10,14 @@
    xmlns:xlink="http://www.w3.org/1999/xlink"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="192"
-   height="192"
-   viewBox="0 0 50.799998 50.800001"
+   width="170.05"
+   height="150.71146"
+   viewBox="0 0 44.992385 39.87574"
    version="1.1"
    id="svg8"
    inkscape:version="0.92.5 (2060ec1f9f, 2020-04-08)"
    sodipodi:docname="cluehelpicon.svg"
-   inkscape:export-filename="C:\Users\poipo\OneDrive\Documenti\programmi\cluehelpicon.png"
+   inkscape:export-filename="C:\Users\poipo\Desktop\bitmap.png"
    inkscape:export-xdpi="96"
    inkscape:export-ydpi="96">
   <defs
@@ -30,7 +30,7 @@
          offset="0"
          id="stop4918" />
       <stop
-         style="stop-color:#de0000;stop-opacity:1"
+         style="stop-color:#ba0000;stop-opacity:1"
          offset="1"
          id="stop4920" />
     </linearGradient>
@@ -39,7 +39,7 @@
        xlink:href="#red_dark_red"
        id="radialGradient4926"
        gradientUnits="userSpaceOnUse"
-       gradientTransform="matrix(0.25384654,0,0,0.25605922,0.01231086,245.99408)"
+       gradientTransform="matrix(0.25384654,0,0,0.25605922,5.1175725,239.47361)"
        cx="95.842773"
        cy="100"
        fx="95.842773"
@@ -54,8 +54,8 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="2.8"
-     inkscape:cx="148.96633"
-     inkscape:cy="96.473395"
+     inkscape:cx="-61.606904"
+     inkscape:cy="78.555949"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -64,7 +64,15 @@
      inkscape:window-height="1001"
      inkscape:window-x="-9"
      inkscape:window-y="-9"
-     inkscape:window-maximized="1" />
+     inkscape:window-maximized="1"
+     showguides="true"
+     inkscape:guide-bbox="true">
+    <inkscape:grid
+       type="xygrid"
+       id="grid56"
+       originx="-4.0469264"
+       originy="-6.5204668" />
+  </sodipodi:namedview>
   <metadata
      id="metadata5">
     <rdf:RDF>
@@ -81,10 +89,10 @@
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(0,-246.19999)">
+     transform="translate(-9.6813553,-245.14165)">
     <path
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:22.1009922px;line-height:1.25;font-family:'Futura Extra';-inkscape-font-specification:'Futura Extra';letter-spacing:0px;word-spacing:0px;fill:url(#radialGradient4926);fill-opacity:1;stroke:none;stroke-width:0.53010339"
-       d="m 4.5760948,251.66214 v 11.33236 h 5.4353892 v 28.54336 h 12.932787 v -13.85099 h 8.230181 v 13.85099 H 44.107238 V 251.67702 H 31.174452 v 13.42808 h -8.230181 v -13.42808 h -12.92882 v -0.0149 z"
+       d="m 9.6813553,245.14167 v 11.33236 h 5.4353897 v 28.54336 H 28.049532 V 271.1664 h 8.230181 v 13.85099 H 49.212499 V 245.15655 H 36.279713 v 13.42808 h -8.230181 v -13.42808 h -12.92882 v -0.0149 z"
        id="text17"
        inkscape:connector-curvature="0" />
   </g>

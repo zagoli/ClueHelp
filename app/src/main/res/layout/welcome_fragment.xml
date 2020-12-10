@@ -8,14 +8,17 @@
 
     <ImageView
         android:id="@+id/welcome_image"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/welcome_image_margin"
+        android:layout_marginEnd="@dimen/welcome_image_margin"
         android:contentDescription="@string/welcome_image_description"
         app:layout_constraintBottom_toTopOf="@+id/start_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/welcome_light_theme"
         tools:src="@tools:sample/avatars" />
 
     <Button
