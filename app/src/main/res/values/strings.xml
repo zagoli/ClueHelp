@@ -11,6 +11,9 @@
     <string name="order_insertion_players">insert players starting from you, and going clockwise</string>
     <string name="remove_image_description">Remove</string>
     <string name="insert_new_weapon_hint_text">Weapon</string>
-    <string name="at_least_six_weapons_needed">Please, insert at least six suspects to proceed.</string>
+    <string name="at_least_six_suspects_needed">Please, insert at least six suspects to proceed.</string>
+    <string name="at_least_six_weapons_needed">Please, insert at least six weapons to proceed.</string>
     <string name="insert_weapons_fragment_label">Insert weapons</string>
+    <string name="insert_new_room_hint_text">Room</string>
+    <string name="insert_rooms_fragment_label">Insert rooms</string>
 </resources>

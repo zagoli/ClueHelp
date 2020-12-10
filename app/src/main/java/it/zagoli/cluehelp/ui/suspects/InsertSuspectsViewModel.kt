@@ -3,10 +3,10 @@ package it.zagoli.cluehelp.ui.suspects
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import it.zagoli.cluehelp.MainActivity
 import it.zagoli.cluehelp.domain.GameObject
 import it.zagoli.cluehelp.domain.GameObjectType
 import it.zagoli.cluehelp.extensions.MutableLiveList
+import it.zagoli.cluehelp.ui.TempStore
 import it.zagoli.cluehelp.ui.gameObjectsUtils.NavigationStatus
 import timber.log.Timber
 
@@ -40,10 +40,10 @@ class InsertSuspectsViewModel : ViewModel() { //init block below!
     fun onNavigateToInsertWeapons() {
         if(_suspects.value!!.size > 5) {
             //we remove suspects that we may have added previously (we are here by back navigation)
-            MainActivity.gameObjects.removeIf { g -> g.type == GameObjectType.SUSPECT }
+            TempStore.gameObjects.removeIf { g -> g.type == GameObjectType.SUSPECT }
             //we save temporarily the suspects list in the main activity companion object
             //at this point, the value of suspects is certainly not null
-            MainActivity.gameObjects.addAll(suspects.value!!)
+            TempStore.gameObjects.addAll(suspects.value!!)
             _navigateInsertWeaponsEvent.value = NavigationStatus.OK
         } else {
             _navigateInsertWeaponsEvent.value = NavigationStatus.IMPOSSIBLE

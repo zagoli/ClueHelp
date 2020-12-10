@@ -3,9 +3,9 @@ package it.zagoli.cluehelp.ui.players
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import it.zagoli.cluehelp.MainActivity
 import it.zagoli.cluehelp.domain.Player
 import it.zagoli.cluehelp.extensions.MutableLiveList
+import it.zagoli.cluehelp.ui.TempStore
 import it.zagoli.cluehelp.ui.gameObjectsUtils.NavigationStatus
 import timber.log.Timber
 
@@ -41,7 +41,7 @@ class InsertPlayersViewModel : ViewModel() {
         if(_players.value!!.size > 1) {
             //we save temporarily the players list in the main activity companion object
             //at this point, the value of players is certainly not null
-            MainActivity.players = players.value!!
+            TempStore.players = players.value!!
             _navigateInsertSuspectsEvent.value = NavigationStatus.OK
         } else {
             _navigateInsertSuspectsEvent.value = NavigationStatus.IMPOSSIBLE

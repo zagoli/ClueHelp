@@ -1,10 +1,13 @@
 package it.zagoli.cluehelp.ui.weapons
 
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import it.zagoli.cluehelp.domain.GameObject
 import it.zagoli.cluehelp.domain.GameObjectType
 import it.zagoli.cluehelp.extensions.MutableLiveList
+import it.zagoli.cluehelp.ui.TempStore
+import it.zagoli.cluehelp.ui.gameObjectsUtils.NavigationStatus
 import timber.log.Timber
 
 class InsertWeaponsViewModel : ViewModel() { //init block below!
@@ -18,6 +21,41 @@ class InsertWeaponsViewModel : ViewModel() { //init block below!
      */
     val weapons: LiveData<MutableList<GameObject>>
         get() = _weapons
+
+    /**
+     * backing property for [navigateInsertRoomsEvent]
+     */
+    private val _navigateInsertRoomsEvent = MutableLiveData<NavigationStatus>()
+
+    /**
+     * navigation event. We should navigate only if there are at least six weapons
+     */
+    val navigateInsertRoomsEvent: MutableLiveData<NavigationStatus>
+        get() = _navigateInsertRoomsEvent
+
+    /**
+     * call when you want to navigate to insert rooms fragment.
+     * it will trigger the event only if there are six or more suspects
+     */
+    fun onNavigateToInsertRooms() {
+        if(_weapons.value!!.size > 5) {
+            //we remove weapons that we may have added previously (we are here by back navigation)
+            TempStore.gameObjects.removeIf { g -> g.type == GameObjectType.WEAPON }
+            //we save temporarily the suspects list in the main activity companion object
+            //at this point, the value of suspects is certainly not null
+            TempStore.gameObjects.addAll(weapons.value!!)
+            _navigateInsertRoomsEvent.value = NavigationStatus.OK
+        } else {
+            _navigateInsertRoomsEvent.value = NavigationStatus.IMPOSSIBLE
+        }
+    }
+
+    /**
+     * call after the navigation
+     */
+    fun navigateToInsertRoomsComplete() {
+        _navigateInsertRoomsEvent.value = NavigationStatus.DONE
+    }
 
     /**
      * add new weapon in [_weapons]

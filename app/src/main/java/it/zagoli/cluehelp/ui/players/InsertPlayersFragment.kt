@@ -9,10 +9,10 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import com.google.android.material.snackbar.Snackbar
-import it.zagoli.cluehelp.MainActivity
 import it.zagoli.cluehelp.R
 import it.zagoli.cluehelp.databinding.InsertPlayersFragmentBinding
 import it.zagoli.cluehelp.domain.Player
+import it.zagoli.cluehelp.ui.TempStore
 import it.zagoli.cluehelp.ui.gameObjectsUtils.NavigationStatus
 import timber.log.Timber
 
@@ -55,7 +55,7 @@ class InsertPlayersFragment : Fragment() {
                     binding.root.findNavController().navigate(InsertPlayersFragmentDirections.actionInsertPlayersFragmentToInsertSuspectsFragment())
                     viewModel.navigateToInsertSuspectsComplete()
                     Timber.i("navigation to insert suspects.")
-                    Timber.i("players: ${MainActivity.players.map(Player::name)}")
+                    Timber.i("players: ${TempStore.players.map(Player::name)}")
                 }
                 NavigationStatus.IMPOSSIBLE -> {
                     Snackbar.make(

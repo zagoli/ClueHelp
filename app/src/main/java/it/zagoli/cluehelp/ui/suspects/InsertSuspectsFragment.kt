@@ -9,11 +9,11 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import com.google.android.material.snackbar.Snackbar
-import it.zagoli.cluehelp.MainActivity
 import it.zagoli.cluehelp.R
 import it.zagoli.cluehelp.databinding.InsertSuspectsFragmentBinding
 import it.zagoli.cluehelp.domain.GameObject
 import it.zagoli.cluehelp.domain.GameObjectType
+import it.zagoli.cluehelp.ui.TempStore
 import it.zagoli.cluehelp.ui.gameObjectsUtils.GameObjectAdapter
 import it.zagoli.cluehelp.ui.gameObjectsUtils.GameObjectClickListener
 import it.zagoli.cluehelp.ui.gameObjectsUtils.NavigationStatus
@@ -58,12 +58,12 @@ class InsertSuspectsFragment : Fragment() {
                     binding.root.findNavController().navigate(InsertSuspectsFragmentDirections.actionInsertSuspectsFragmentToInsertWeaponsFragment())
                     viewModel.navigateToInsertWeaponsComplete()
                     Timber.i("navigation to insert weapons.")
-                    Timber.i("suspects: ${MainActivity.gameObjects.filter{g -> g.type == GameObjectType.SUSPECT}.map(GameObject::name)}")
+                    Timber.i("suspects: ${TempStore.gameObjects.filter{ g -> g.type == GameObjectType.SUSPECT}.map(GameObject::name)}")
                 }
                 NavigationStatus.IMPOSSIBLE -> {
                     Snackbar.make(
                         binding.root,
-                        resources.getString(R.string.at_least_six_weapons_needed),
+                        resources.getString(R.string.at_least_six_suspects_needed),
                         Snackbar.LENGTH_SHORT
                     ).show()
                     viewModel.navigateToInsertWeaponsComplete()

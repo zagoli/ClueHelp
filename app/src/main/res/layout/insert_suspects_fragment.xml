@@ -41,7 +41,6 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/suspect_next_page_fab"
             style="@style/nextPageFab"
             android:contentDescription="@string/next_page_fab_description"
             android:onClick="@{() -> viewModel.onNavigateToInsertWeapons()}"
