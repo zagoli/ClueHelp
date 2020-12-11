@@ -45,5 +45,14 @@
         android:id="@+id/insertRoomsFragment"
         android:name="it.zagoli.cluehelp.ui.room.InsertRoomsFragment"
         android:label="@string/insert_rooms_fragment_label"
-        tools:layout="@layout/insert_rooms_fragment"/>
+        tools:layout="@layout/insert_rooms_fragment">
+        <action
+            android:id="@+id/action_insertRoomsFragment_to_mainGameFragment"
+            app:destination="@id/mainGameFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/mainGameFragment"
+        android:name="it.zagoli.cluehelp.ui.mainGameFragment.MainGameFragment"
+        android:label="@string/app_name"
+        tools:layout="@layout/main_game_fragment"/>
 </navigation>

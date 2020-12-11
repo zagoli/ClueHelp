@@ -1,21 +1,4 @@
 <resources>
-    <string name="app_name">ClueHelp</string>
-    <string name="start_button_text">Start!</string>
-    <string name="welcome_image_description">Welcome image</string>
-    <string name="insert_players_fragment_label">Insert players</string>
-    <string name="insert_new_player_hint_text">Player</string>
-    <string name="next_page_fab_description">next</string>
-    <string name="insert_new_suspects_hint_text">Suspect</string>
-    <string name="insert_suspects_fragment_label">Insert suspects</string>
-    <string name="at_least_two_players_needed">Please, insert at least two players to proceed.</string>
-    <string name="order_insertion_players">insert players starting from you, and going clockwise</string>
-    <string name="remove_image_description">Remove</string>
-    <string name="insert_new_weapon_hint_text">Weapon</string>
-    <string name="at_least_six_suspects_needed">Please, insert at least six suspects to proceed.</string>
-    <string name="at_least_six_weapons_needed">Please, insert at least six weapons to proceed.</string>
-    <string name="insert_weapons_fragment_label">Insert weapons</string>
-    <string name="insert_new_room_hint_text">Room</string>
-    <string name="insert_rooms_fragment_label">Insert rooms</string>
 
     <!--Suspects-->
     <string name="Plum">Plum</string>
@@ -43,5 +26,25 @@
     <string name="Kitchen">Kitchen</string>
     <string name="Bedroom">Bedroom</string>
     <string name="Bathroom">Bathroom</string>
+
+    <string name="app_name">ClueHelp</string>
+    <string name="start_button_text">Start!</string>
+    <string name="welcome_image_description">Welcome image</string>
+    <string name="insert_players_fragment_label">Insert players</string>
+    <string name="insert_new_player_hint_text">Player</string>
+    <string name="next_page_fab_description">next</string>
+    <string name="insert_new_suspects_hint_text">Suspect</string>
+    <string name="insert_suspects_fragment_label">Insert suspects</string>
+    <string name="at_least_two_players_needed">Please, insert at least two players to proceed.</string>
+    <string name="order_insertion_players">insert players starting from you, and going clockwise</string>
+    <string name="remove_image_description">Remove</string>
+    <string name="insert_new_weapon_hint_text">Weapon</string>
+    <string name="at_least_six_suspects_needed">Please, insert at least six suspects to proceed.</string>
+    <string name="at_least_six_weapons_needed">Please, insert at least six weapons to proceed.</string>
+    <string name="insert_weapons_fragment_label">Insert weapons</string>
+    <string name="insert_new_room_hint_text">Room</string>
+    <string name="insert_rooms_fragment_label">Insert rooms</string>
+    <string name="new_question_fab_description">Add a new question</string>
+    <string name="at_least_nine_rooms_needed">Please, insert at least nine rooms to proceed.</string>
 
 </resources>

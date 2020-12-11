@@ -3,11 +3,14 @@ package it.zagoli.cluehelp.ui.room
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import it.zagoli.cluehelp.ClueHelpApplication
 import it.zagoli.cluehelp.R
 import it.zagoli.cluehelp.domain.GameObject
 import it.zagoli.cluehelp.domain.GameObjectType
 import it.zagoli.cluehelp.extensions.MutableLiveList
+import it.zagoli.cluehelp.ui.TempStore
+import it.zagoli.cluehelp.ui.gameObjectsUtils.NavigationStatus
 import timber.log.Timber
 
 class InsertRoomsViewModel(application: Application) : AndroidViewModel(application) { //init block below!
@@ -21,6 +24,41 @@ class InsertRoomsViewModel(application: Application) : AndroidViewModel(applicat
      */
     val rooms: LiveData<MutableList<GameObject>>
         get() = _rooms
+
+    /**
+     * backing property for [navigateMainGameEvent]
+     */
+    private val _navigateMainGameEvent = MutableLiveData<NavigationStatus>()
+
+    /**
+     * navigation event. We should navigate only if there are at least nine rooms
+     */
+    val navigateMainGameEvent: MutableLiveData<NavigationStatus>
+        get() = _navigateMainGameEvent
+
+    /**
+     * call when you want to navigate to  mainGame fragment.
+     * it will trigger the event only if there are nine or more rooms
+     */
+    fun onNavigateToMainGame() {
+        if (_rooms.value!!.size > 8) {
+            //we remove rooms that we may have added previously (we are here by back navigation)
+            TempStore.gameObjects.removeIf { g -> g.type == GameObjectType.SUSPECT }
+            //we save temporarily the rooms list in the main activity companion object
+            //at this point, the value of rooms is certainly not null
+            TempStore.gameObjects.addAll(rooms.value!!)
+            _navigateMainGameEvent.value = NavigationStatus.OK
+        } else {
+            _navigateMainGameEvent.value = NavigationStatus.IMPOSSIBLE
+        }
+    }
+
+    /**
+     * call after the navigation
+     */
+    fun navigateToMainGameComplete() {
+        _navigateMainGameEvent.value = NavigationStatus.DONE
+    }
 
     /**
      * add new room in [_rooms]
