@@ -20,7 +20,11 @@ class MainGameFragment : Fragment() {
         val viewModel = ViewModelProvider(this).get(MainGameViewModel::class.java)
         val binding = MainGameFragmentBinding.inflate(inflater)
         binding.lifecycleOwner = this
-        val playersList = TempStore.players
+        //players plus a placeholder player that will go in the spinner
+        val playersList = mutableListOf(Player("")).let {
+            it.addAll(TempStore.players)
+            it.toTypedArray()
+        }
 
         // adapter for the recyclerview of gameObjects
         val gameObjectMainGameAdapter = GameObjectMainGameAdapter(
@@ -29,12 +33,10 @@ class MainGameFragment : Fragment() {
             playerAdapter = ArrayAdapter<Player>(
                 requireContext(),
                 android.R.layout.simple_spinner_item,
-                //players plus a placeholder player that will go in the spinner
-                mutableListOf(Player("")).let {
-                    it.addAll(playersList)
-                    it.toTypedArray()
-                }
-            )
+                playersList
+            ),
+            // we need to pass the players only to calculate the position of selected player in the spinner
+            players = playersList
         )
         binding.gameObjectList.adapter = gameObjectMainGameAdapter
 

@@ -9,7 +9,8 @@ import it.zagoli.cluehelp.ui.gameObjectsUtils.GameObjectDiffCallback
 
 class GameObjectMainGameAdapter(
     private val viewModel: MainGameViewModel,
-    private val playerAdapter: ArrayAdapter<Player>
+    private val playerAdapter: ArrayAdapter<Player>,
+    private val players: Array<Player>
 ) : ListAdapter<GameObject, GameObjectMainGameViewHolder>(GameObjectDiffCallback()) {
 
     override fun onCreateViewHolder(
@@ -20,6 +21,13 @@ class GameObjectMainGameAdapter(
     }
 
     override fun onBindViewHolder(holder: GameObjectMainGameViewHolder, position: Int) {
-        holder.bind(getItem(position), playerAdapter)
+        val gameObject = getItem(position)
+        val selectedPlayerPosition =
+            if (gameObject.owner == null) {
+                0
+            } else {
+                players.indexOf(gameObject.owner)
+            }
+        holder.bind(getItem(position), playerAdapter, selectedPlayerPosition)
     }
 }

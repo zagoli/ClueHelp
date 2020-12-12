@@ -25,7 +25,7 @@
             app:layout_constraintTop_toTopOf="parent"
             tools:text="@string/Plum" />
 
-        <androidx.appcompat.widget.AppCompatSpinner
+        <Spinner
             android:id="@+id/spinner_game_object_owner"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

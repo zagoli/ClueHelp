@@ -6,6 +6,7 @@ import it.zagoli.cluehelp.domain.GameObject
 import it.zagoli.cluehelp.domain.Question
 import it.zagoli.cluehelp.extensions.MutableLiveList
 import it.zagoli.cluehelp.ui.TempStore
+import timber.log.Timber
 
 class MainGameViewModel : ViewModel() {
 
@@ -31,7 +32,7 @@ class MainGameViewModel : ViewModel() {
      * @param gameObject is the object with the new owner
      */
     fun newObjectOwnerDiscovered(gameObject: GameObject) {
-
+        Timber.i("new object owner: ${gameObject.owner?.name} for object ${gameObject.name}")
     }
 
     /**
