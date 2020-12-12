@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="gameObject"
+            type="it.zagoli.cluehelp.domain.GameObject" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        style="@style/listElementRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/game_object_name"
+            style="@style/textListElementRecyclerView"
+            android:text="@{gameObject.name}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="@string/Plum" />
+
+        <androidx.appcompat.widget.AppCompatSpinner
+            android:id="@+id/spinner_game_object_owner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/small_margin"
+            android:spinnerMode="dialog"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:listitem="@layout/support_simple_spinner_dropdown_item" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

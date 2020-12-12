@@ -24,7 +24,7 @@
             app:layout_constraintTop_toTopOf="parent"
             tools:text="Giovanni" />
 
-        <ImageButton
+        <ImageView
             android:id="@+id/remove_player_button"
             style="@style/removeListElementRecyclerView"
             android:contentDescription="@string/remove_image_description"
