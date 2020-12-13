@@ -48,7 +48,8 @@
         tools:layout="@layout/insert_rooms_fragment">
         <action
             android:id="@+id/action_insertRoomsFragment_to_mainGameFragment"
-            app:destination="@id/mainGameFragment" />
+            app:destination="@id/mainGameFragment"
+            app:popUpTo="@id/welcomeFragment" />
     </fragment>
     <fragment
         android:id="@+id/mainGameFragment"

@@ -6,4 +6,5 @@
     <dimen name="normal_margin">16dp</dimen>
     <dimen name="small_margin">8dp</dimen>
     <dimen name="welcome_image_margin">24dp</dimen>
+    <dimen name="header_size">24sp</dimen>
 </resources>

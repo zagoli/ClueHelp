@@ -13,6 +13,7 @@ import it.zagoli.cluehelp.R
 import it.zagoli.cluehelp.databinding.InsertWeaponsFragmentBinding
 import it.zagoli.cluehelp.domain.GameObject
 import it.zagoli.cluehelp.domain.GameObjectType
+import it.zagoli.cluehelp.extensions.weapons
 import it.zagoli.cluehelp.ui.TempStore
 import it.zagoli.cluehelp.ui.gameObjectsUtils.GameObjectAdapter
 import it.zagoli.cluehelp.ui.gameObjectsUtils.GameObjectClickListener
@@ -57,8 +58,8 @@ class InsertWeaponsFragment : Fragment() {
                 NavigationStatus.OK -> {
                     binding.root.findNavController().navigate(InsertWeaponsFragmentDirections.actionInsertWeaponsFragmentToInsertRoomsFragment())
                     viewModel.navigateToInsertRoomsComplete()
+                    Timber.i("weapons: ${TempStore.gameObjects.weapons.map(GameObject::name)}")
                     Timber.i("navigation to insert rooms.")
-                    Timber.i("weapons: ${TempStore.gameObjects.filter{ g -> g.type == GameObjectType.WEAPON}.map(GameObject::name)}")
                 }
                 NavigationStatus.IMPOSSIBLE -> {
                     Snackbar.make(

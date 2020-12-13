@@ -43,7 +43,7 @@ class InsertRoomsViewModel(application: Application) : AndroidViewModel(applicat
     fun onNavigateToMainGame() {
         if (_rooms.value!!.size > 8) {
             //we remove rooms that we may have added previously (we are here by back navigation)
-            TempStore.gameObjects.removeIf { g -> g.type == GameObjectType.SUSPECT }
+            TempStore.gameObjects.removeIf { g -> g.type == GameObjectType.ROOM }
             //we save temporarily the rooms list in the main activity companion object
             //at this point, the value of rooms is certainly not null
             TempStore.gameObjects.addAll(rooms.value!!)

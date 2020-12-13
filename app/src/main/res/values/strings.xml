@@ -46,5 +46,8 @@
     <string name="insert_rooms_fragment_label">Insert rooms</string>
     <string name="new_question_fab_description">Add a new question</string>
     <string name="at_least_nine_rooms_needed">Please, insert at least nine rooms to proceed.</string>
+    <string name="suspects_header">Suspects</string>
+    <string name="weapons_header">Weapons</string>
+    <string name="rooms_header">Rooms</string>
 
 </resources>

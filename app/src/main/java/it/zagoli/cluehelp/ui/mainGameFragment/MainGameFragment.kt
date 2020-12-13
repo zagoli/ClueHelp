@@ -44,7 +44,7 @@ class MainGameFragment : Fragment() {
         viewModel.gameObjects.observe(viewLifecycleOwner, {
             it?.let {
                 // same hack as always
-                gameObjectMainGameAdapter.submitList(ArrayList(it))
+                gameObjectMainGameAdapter.addHeadersAndSubmitList(ArrayList(it))
             }
         })
 

@@ -13,6 +13,7 @@ import it.zagoli.cluehelp.R
 import it.zagoli.cluehelp.databinding.InsertRoomsFragmentBinding
 import it.zagoli.cluehelp.domain.GameObject
 import it.zagoli.cluehelp.domain.GameObjectType
+import it.zagoli.cluehelp.extensions.rooms
 import it.zagoli.cluehelp.ui.TempStore
 import it.zagoli.cluehelp.ui.gameObjectsUtils.GameObjectAdapter
 import it.zagoli.cluehelp.ui.gameObjectsUtils.GameObjectClickListener
@@ -57,8 +58,8 @@ class InsertRoomsFragment : Fragment() {
                 NavigationStatus.OK -> {
                     binding.root.findNavController().navigate(InsertRoomsFragmentDirections.actionInsertRoomsFragmentToMainGameFragment())
                     viewModel.navigateToMainGameComplete()
+                    Timber.i("rooms: ${TempStore.gameObjects.rooms.map(GameObject::name)}")
                     Timber.i("navigation to main game.")
-                    Timber.i("rooms: ${TempStore.gameObjects.filter{ g -> g.type == GameObjectType.ROOM}.map(GameObject::name)}")
                 }
                 NavigationStatus.IMPOSSIBLE -> {
                     Snackbar.make(
