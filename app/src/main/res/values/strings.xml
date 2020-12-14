@@ -49,5 +49,13 @@
     <string name="suspects_header">Suspects</string>
     <string name="weapons_header">Weapons</string>
     <string name="rooms_header">Rooms</string>
+    <string name="player_nobody">Nobody</string>
+    <string name="who_asked_question">Who asked the question?</string>
+    <string name="suspect_text_question">Who is the suspect?</string>
+    <string name="weapons_text_question">What is the weapon?</string>
+    <string name="room_text_question">What is the room?</string>
+    <string name="who_answered_question">Who answered the question?</string>
+    <string name="add_question_fab_description">add question</string>
+    <string name="add_question_fragment_label">Add a question</string>
 
 </resources>

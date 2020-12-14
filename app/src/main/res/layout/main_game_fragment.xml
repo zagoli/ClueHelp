@@ -41,7 +41,7 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/floatingActionButton"
+            android:id="@+id/add_question_fab"
             style="@style/fabStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

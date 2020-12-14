@@ -1,14 +1,44 @@
 package it.zagoli.cluehelp.ui.mainGameFragment
 
+import android.app.Application
+import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
+import it.zagoli.cluehelp.ClueHelpApplication
+import it.zagoli.cluehelp.R
 import it.zagoli.cluehelp.domain.GameObject
+import it.zagoli.cluehelp.domain.Player
 import it.zagoli.cluehelp.domain.Question
 import it.zagoli.cluehelp.extensions.MutableLiveList
 import it.zagoli.cluehelp.ui.TempStore
 import timber.log.Timber
 
-class MainGameViewModel : ViewModel() {
+/**
+ * viewModel for MainGameFragment, AddQuestionFragment
+ */
+class MainGameViewModel(application: Application) : AndroidViewModel(application) {
+
+    /**
+     * list of players
+     */
+    val players = TempStore.players
+
+    /**
+     * the player that represents nobody. We store it here so it's created only once
+     */
+    private val nobody = Player(getApplication<ClueHelpApplication>().getString(R.string.player_nobody))
+
+    /**
+     * an array with the placeholder and nobody player for the spinners
+     */
+    val playersWithPlaceholderAndNobodyArray : Array<Player>
+        get() {
+            return mutableListOf(Player("")).let {
+                it.addAll(players)
+                it.add(nobody)
+                it.toTypedArray()
+            }
+        }
 
     /**
      * backing property for [gameObjects]

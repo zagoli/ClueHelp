@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="410.92276"
+   height="57.812134"
+   viewBox="0 0 108.72324 15.296127"
+   version="1.1"
+   id="svg8"
+   inkscape:version="0.92.5 (2060ec1f9f, 2020-04-08)"
+   sodipodi:docname="welcome_dark_theme.svg">
+  <defs
+     id="defs2">
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient4580">
+      <stop
+         style="stop-color:#ff0000;stop-opacity:1"
+         offset="0"
+         id="stop4576" />
+      <stop
+         style="stop-color:#d60000;stop-opacity:1"
+         offset="1"
+         id="stop4578" />
+    </linearGradient>
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient4580"
+       id="radialGradient4582"
+       cx="63.237625"
+       cy="283.72336"
+       fx="63.237625"
+       fy="283.72336"
+       r="7.9181204"
+       gradientTransform="matrix(1,0,0,0.93607441,0,18.137183)"
+       gradientUnits="userSpaceOnUse" />
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1.979899"
+     inkscape:cx="132.83772"
+     inkscape:cy="60.258885"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     units="px"
+     inkscape:window-width="1920"
+     inkscape:window-height="1001"
+     inkscape:window-x="-9"
+     inkscape:window-y="-9"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-1.7300105,-276.12279)">
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.58333302px;line-height:1.25;font-family:'Futura Extra';-inkscape-font-specification:'Futura Extra';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="11.717261"
+       y="278.29019"
+       id="text3715"><tspan
+         sodipodi:role="line"
+         id="tspan3713"
+         x="11.717261"
+         y="287.9462"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Futura Extra';-inkscape-font-specification:'Futura Extra';stroke-width:0.26458332" /></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.58333302px;line-height:1.25;font-family:'Futura Extra';-inkscape-font-specification:'Futura Extra';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="15.40253"
+       y="280.08557"
+       id="text3719"><tspan
+         sodipodi:role="line"
+         id="tspan3717"
+         x="15.40253"
+         y="289.74158"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Futura Extra';-inkscape-font-specification:'Futura Extra';stroke-width:0.26458332" /></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:19.66083145px;line-height:1.25;font-family:'Futura Extra';-inkscape-font-specification:'Futura Extra';letter-spacing:0px;word-spacing:0px;fill:#e3dbdb;fill-opacity:1;stroke:none;stroke-width:0.49152073;opacity:0.946;"
+       x="1.0418814"
+       y="291.18298"
+       id="text3723"><tspan
+         sodipodi:role="line"
+         id="tspan3721"
+         x="1.0418814"
+         y="291.18298"
+         style="stroke-width:0.49152073;fill:#e3dbdb;fill-opacity:1;">CLUE</tspan></text>
+    <path
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.58333302px;line-height:1.25;font-family:'Futura Extra';-inkscape-font-specification:'Futura Extra';letter-spacing:0px;word-spacing:0px;fill:url(#radialGradient4582);fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       d="m 57.471826,276.31141 v 5.2e-4 h -2.152322 v 4.21214 h 2.152322 v 10.61124 h 5.190381 v -5.15111 h 3.303159 v 5.15111 h 5.190379 v -14.8239 h -5.190379 v 4.99401 h -3.303159 v -4.99401 z"
+       id="text3727"
+       inkscape:connector-curvature="0" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.58333302px;line-height:1.25;font-family:'Futura Extra';-inkscape-font-specification:'Futura Extra';letter-spacing:0px;word-spacing:0px;fill:#e3dbdb;fill-opacity:1;stroke:none;stroke-width:0.26458332;opacity:0.946;"
+       x="73.024155"
+       y="291.15164"
+       id="text4573"><tspan
+         sodipodi:role="line"
+         id="tspan4571"
+         x="73.024155"
+         y="291.15164"
+         style="font-size:19.53330612px;stroke-width:0.26458332;fill:#e3dbdb;fill-opacity:1;">ELP</tspan></text>
+  </g>
+</svg>

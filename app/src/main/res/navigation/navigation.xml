@@ -55,5 +55,18 @@
         android:id="@+id/mainGameFragment"
         android:name="it.zagoli.cluehelp.ui.mainGameFragment.MainGameFragment"
         android:label="@string/app_name"
-        tools:layout="@layout/main_game_fragment"/>
+        tools:layout="@layout/main_game_fragment">
+        <action
+            android:id="@+id/action_mainGameFragment_to_addQuestionFragment"
+            app:destination="@id/addQuestionFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addQuestionFragment"
+        android:name="it.zagoli.cluehelp.ui.addQuestion.AddQuestionFragment"
+        android:label="@string/add_question_fragment_label"
+        tools:layout="@layout/add_question_fragment">
+        <action
+            android:id="@+id/action_addQuestionFragment_to_mainGameFragment"
+            app:destination="@id/mainGameFragment" />
+    </fragment>
 </navigation>
