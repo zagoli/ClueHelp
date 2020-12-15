@@ -1,5 +1,6 @@
-package it.zagoli.cluehelp.ui.mainGameFragment
+package it.zagoli.cluehelp.ui.mainGame
 
+import android.R
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -10,6 +11,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import it.zagoli.cluehelp.databinding.MainGameFragmentBinding
 import it.zagoli.cluehelp.domain.Player
+import it.zagoli.cluehelp.ui.mainGame.adapters.GameObjectMainGameAdapter
 import timber.log.Timber
 
 class MainGameFragment : Fragment() {
@@ -29,7 +31,7 @@ class MainGameFragment : Fragment() {
             // definition of an array adapter to show the players in the spinner
             playerAdapter = ArrayAdapter<Player>(
                 requireContext(),
-                android.R.layout.simple_spinner_item,
+                R.layout.simple_spinner_item,
                 viewModel.playersWithPlaceholderAndNobodyArray
             ),
             // we need to pass the players only to calculate the position of selected player in the spinner
@@ -48,7 +50,7 @@ class MainGameFragment : Fragment() {
         // navigation to addQuestionFragment
         binding.addQuestionFab.setOnClickListener {
             binding.root.findNavController().navigate(MainGameFragmentDirections.actionMainGameFragmentToAddQuestionFragment())
-            Timber.i("Navigation to addQuestionFragment")
+            Timber.i("Navigation to add question")
         }
 
         return binding.root

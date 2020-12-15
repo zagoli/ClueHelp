@@ -57,5 +57,6 @@
     <string name="who_answered_question">Who answered the question?</string>
     <string name="add_question_fab_description">add question</string>
     <string name="add_question_fragment_label">Add a question</string>
+    <string name="fill_all_question_fields">Please, fill all the fields first!</string>
 
 </resources>

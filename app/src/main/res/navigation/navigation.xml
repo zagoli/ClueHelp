@@ -53,7 +53,7 @@
     </fragment>
     <fragment
         android:id="@+id/mainGameFragment"
-        android:name="it.zagoli.cluehelp.ui.mainGameFragment.MainGameFragment"
+        android:name="it.zagoli.cluehelp.ui.mainGame.MainGameFragment"
         android:label="@string/app_name"
         tools:layout="@layout/main_game_fragment">
         <action

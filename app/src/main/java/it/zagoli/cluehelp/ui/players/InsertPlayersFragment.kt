@@ -13,7 +13,7 @@ import it.zagoli.cluehelp.R
 import it.zagoli.cluehelp.databinding.InsertPlayersFragmentBinding
 import it.zagoli.cluehelp.domain.Player
 import it.zagoli.cluehelp.ui.TempStore
-import it.zagoli.cluehelp.ui.gameObjectsUtils.NavigationStatus
+import it.zagoli.cluehelp.ui.NavigationStatus
 import timber.log.Timber
 
 class InsertPlayersFragment : Fragment() {

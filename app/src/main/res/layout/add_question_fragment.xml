@@ -3,6 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+        <variable
+            name="viewModel"
+            type="it.zagoli.cluehelp.ui.mainGame.MainGameViewModel" />
+    </data>
+
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -137,6 +143,7 @@
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/add_question_fab"
             style="@style/fabStyle"
+            android:onClick="@{() -> viewModel.navigateToMainGameAndAddQuestion()}"
             android:src="@drawable/ic_baseline_done_24"
             android:contentDescription="@string/add_question_fab_description" />
 

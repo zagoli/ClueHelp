@@ -12,12 +12,11 @@ import com.google.android.material.snackbar.Snackbar
 import it.zagoli.cluehelp.R
 import it.zagoli.cluehelp.databinding.InsertSuspectsFragmentBinding
 import it.zagoli.cluehelp.domain.GameObject
-import it.zagoli.cluehelp.domain.GameObjectType
 import it.zagoli.cluehelp.extensions.suspects
 import it.zagoli.cluehelp.ui.TempStore
 import it.zagoli.cluehelp.ui.gameObjectsUtils.GameObjectAdapter
 import it.zagoli.cluehelp.ui.gameObjectsUtils.GameObjectClickListener
-import it.zagoli.cluehelp.ui.gameObjectsUtils.NavigationStatus
+import it.zagoli.cluehelp.ui.NavigationStatus
 import timber.log.Timber
 
 class InsertSuspectsFragment : Fragment() {

@@ -1,4 +1,4 @@
-package it.zagoli.cluehelp.ui.mainGameFragment
+package it.zagoli.cluehelp.ui.mainGame.adapters
 
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
@@ -10,6 +10,7 @@ import it.zagoli.cluehelp.domain.Player
 import it.zagoli.cluehelp.extensions.rooms
 import it.zagoli.cluehelp.extensions.suspects
 import it.zagoli.cluehelp.extensions.weapons
+import it.zagoli.cluehelp.ui.mainGame.MainGameViewModel
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -69,7 +70,11 @@ class GameObjectMainGameAdapter(
             val suspectsHeader = DataItem.Header(R.string.suspects_header)
             val weaponsHeader = DataItem.Header(R.string.weapons_header)
             val roomsHeader = DataItem.Header(R.string.rooms_header)
-            val items = listOf(suspectsHeader) + list.suspects.map { DataItem.GameObjectItem(it) } + listOf(weaponsHeader) + list.weapons.map { DataItem.GameObjectItem(it) } + listOf(roomsHeader) + list.rooms.map { DataItem.GameObjectItem(it) }
+            val items = listOf(suspectsHeader) + list.suspects.map { DataItem.GameObjectItem(it) } + listOf(weaponsHeader) + list.weapons.map {
+                DataItem.GameObjectItem(
+                    it
+                )
+            } + listOf(roomsHeader) + list.rooms.map { DataItem.GameObjectItem(it) }
             withContext(Dispatchers.Main) {
                 submitList(items)
             }

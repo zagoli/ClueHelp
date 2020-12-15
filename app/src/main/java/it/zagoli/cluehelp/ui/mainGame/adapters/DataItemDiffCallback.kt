@@ -1,4 +1,4 @@
-package it.zagoli.cluehelp.ui.mainGameFragment
+package it.zagoli.cluehelp.ui.mainGame.adapters
 
 import androidx.recyclerview.widget.DiffUtil
 

@@ -10,7 +10,7 @@ import it.zagoli.cluehelp.domain.GameObject
 import it.zagoli.cluehelp.domain.GameObjectType
 import it.zagoli.cluehelp.extensions.MutableLiveList
 import it.zagoli.cluehelp.ui.TempStore
-import it.zagoli.cluehelp.ui.gameObjectsUtils.NavigationStatus
+import it.zagoli.cluehelp.ui.NavigationStatus
 import timber.log.Timber
 
 class InsertWeaponsViewModel(application: Application) : AndroidViewModel(application) { //init block below!

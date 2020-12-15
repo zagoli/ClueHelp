@@ -1,4 +1,4 @@
-package it.zagoli.cluehelp.ui.gameObjectsUtils
+package it.zagoli.cluehelp.ui
 
 enum class NavigationStatus {
     OK, //trigger navigation

@@ -6,7 +6,7 @@ import androidx.lifecycle.ViewModel
 import it.zagoli.cluehelp.domain.Player
 import it.zagoli.cluehelp.extensions.MutableLiveList
 import it.zagoli.cluehelp.ui.TempStore
-import it.zagoli.cluehelp.ui.gameObjectsUtils.NavigationStatus
+import it.zagoli.cluehelp.ui.NavigationStatus
 import timber.log.Timber
 
 class InsertPlayersViewModel : ViewModel() {

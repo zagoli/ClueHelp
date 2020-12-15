@@ -1,10 +1,10 @@
-package it.zagoli.cluehelp.ui.mainGameFragment
+package it.zagoli.cluehelp.ui.mainGame.adapters
 
 import android.view.View
 import android.widget.AdapterView
 import it.zagoli.cluehelp.domain.GameObject
 import it.zagoli.cluehelp.domain.Player
-import timber.log.Timber
+import it.zagoli.cluehelp.ui.mainGame.MainGameViewModel
 
 class GameObjectMainGameListener(
     private val viewModel: MainGameViewModel,

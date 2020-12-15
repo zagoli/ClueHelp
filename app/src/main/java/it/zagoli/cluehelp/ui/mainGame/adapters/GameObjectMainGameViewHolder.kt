@@ -1,4 +1,4 @@
-package it.zagoli.cluehelp.ui.mainGameFragment
+package it.zagoli.cluehelp.ui.mainGame.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import it.zagoli.cluehelp.databinding.MainGameListElementBinding
 import it.zagoli.cluehelp.domain.GameObject
 import it.zagoli.cluehelp.domain.Player
+import it.zagoli.cluehelp.ui.mainGame.MainGameViewModel
 
 class GameObjectMainGameViewHolder(
     private val binding: MainGameListElementBinding,
