@@ -27,6 +27,8 @@ class GameObjectMainGameViewHolder(
         playerAdapter: ArrayAdapter<Player>,
         selectedPlayerPosition: Int
     ) {
+        playerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        binding.spinnerGameObjectOwner
         binding.spinnerGameObjectOwner.adapter = playerAdapter
         binding.spinnerGameObjectOwner.onItemSelectedListener = GameObjectMainGameListener(viewModel = viewModel, gameObject = gameObject)
         binding.spinnerGameObjectOwner.setSelection(selectedPlayerPosition)

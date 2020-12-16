@@ -79,6 +79,24 @@ fun List<Question>.forEachValidQuestion(callback: (Question) -> Unit) {
 }
 
 /**
+ * return true if the gameObject is contained in the list
+ * @param gameObject the object to know if it's in the list
+ */
+fun List<GameObjectWrapper>.containsGameObject(gameObject: GameObject): Boolean {
+    return this
+        .map { gameObjectWrapper -> gameObjectWrapper.gameObject }
+        .contains(gameObject)
+}
+
+/**
+ * return the [GameObjectWrapper] associated with the given [gameObject] if present in the list.
+ * @param gameObject the gameObject to search in the list
+ */
+fun List<GameObjectWrapper>.gowFromGameObject(gameObject: GameObject): GameObjectWrapper {
+    return this.first { gameObjectWrapper -> gameObjectWrapper.gameObject == gameObject }
+}
+
+/**
  * this binder adapter sets the text of the header based on the resource id.
  */
 @BindingAdapter("headerText")

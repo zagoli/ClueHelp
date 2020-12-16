@@ -67,6 +67,7 @@
         tools:layout="@layout/add_question_fragment">
         <action
             android:id="@+id/action_addQuestionFragment_to_mainGameFragment"
-            app:destination="@id/mainGameFragment" />
+            app:destination="@id/mainGameFragment"
+            app:popUpTo="@id/welcomeFragment" />
     </fragment>
 </navigation>

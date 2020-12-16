@@ -4,6 +4,7 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import it.zagoli.cluehelp.BuildConfig
 import it.zagoli.cluehelp.ClueHelpApplication
 import it.zagoli.cluehelp.R
 import it.zagoli.cluehelp.domain.GameObject
@@ -139,6 +140,24 @@ class MainGameViewModel(application: Application) : AndroidViewModel(application
         Timber.i("new object owner: ${gameObject.owner?.name} for object ${gameObject.name}")
         // this set holds the new other objects that we may discover to process them later.
         val newGameObjectsSet: MutableSet<GameObject> = mutableSetOf()
+        questionList.forEachValidQuestion { question ->
+            // at this point the gameObject owner should be not null
+            if (question.gameObjects.containsGameObject(gameObject) && gameObject.owner != question.answers) {
+                question.gameObjects.gowFromGameObject(gameObject).invalidate()
+            }
+            // if only one valid object in question
+            if (question.validObjectsNumber == 1) {
+                question.invalidate()
+                val newObj = question.firstValidObject
+                if (newObj.owner == null) {
+                    newObj.owner = question.answers
+                    newGameObjectsSet.add(newObj)
+                }
+            }
+        }
+        for (newObj in newGameObjectsSet) {
+            newObjectOwnerDiscovered(newObj)
+        }
     }
 
     /**

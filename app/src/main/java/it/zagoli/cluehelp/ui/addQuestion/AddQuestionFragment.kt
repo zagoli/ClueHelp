@@ -33,7 +33,7 @@ class AddQuestionFragment : Fragment(), AdapterView.OnItemSelectedListener {
         binding.viewModel = viewModel
 
         // who asked spinner
-        binding.whoAskedSpinner.adapter = ArrayAdapter(
+        ArrayAdapter(
             requireContext(),
             android.R.layout.simple_spinner_item,
             // players with placeholder
@@ -41,11 +41,14 @@ class AddQuestionFragment : Fragment(), AdapterView.OnItemSelectedListener {
                 it.addAll(viewModel.players)
                 it.toTypedArray()
             }
-        )
+        ).also { adapter ->
+            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+            binding.whoAskedSpinner.adapter = adapter
+        }
         binding.whoAskedSpinner.onItemSelectedListener = this
 
         // suspect spinner
-        binding.suspectSpinner.adapter = ArrayAdapter(
+        ArrayAdapter(
             requireContext(),
             android.R.layout.simple_spinner_item,
             // suspects with placeholder
@@ -53,11 +56,14 @@ class AddQuestionFragment : Fragment(), AdapterView.OnItemSelectedListener {
                 viewModel.gameObjects.value?.let { gameObjects -> it.addAll(gameObjects.suspects) }
                 it.toTypedArray()
             }
-        )
+        ).also { adapter ->
+            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+            binding.suspectSpinner.adapter = adapter
+        }
         binding.suspectSpinner.onItemSelectedListener = this
 
         // weapon spinner
-        binding.weaponSpinner.adapter = ArrayAdapter(
+        ArrayAdapter(
             requireContext(),
             android.R.layout.simple_spinner_item,
             // weapons with placeholder
@@ -65,11 +71,14 @@ class AddQuestionFragment : Fragment(), AdapterView.OnItemSelectedListener {
                 viewModel.gameObjects.value?.let { gameObjects -> it.addAll(gameObjects.weapons) }
                 it.toTypedArray()
             }
-        )
+        ).also { adapter ->
+            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+            binding.weaponSpinner.adapter = adapter
+        }
         binding.weaponSpinner.onItemSelectedListener = this
 
         // room spinner
-        binding.roomSpinner.adapter = ArrayAdapter(
+        ArrayAdapter(
             requireContext(),
             android.R.layout.simple_spinner_item,
             // rooms with placeholder
@@ -77,15 +86,21 @@ class AddQuestionFragment : Fragment(), AdapterView.OnItemSelectedListener {
                 viewModel.gameObjects.value?.let { gameObjects -> it.addAll(gameObjects.rooms) }
                 it.toTypedArray()
             }
-        )
+        ).also { adapter ->
+            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+            binding.roomSpinner.adapter = adapter
+        }
         binding.roomSpinner.onItemSelectedListener = this
 
         // who answered spinner
-        binding.whoAnsweredSpinner.adapter = ArrayAdapter(
+        ArrayAdapter(
             requireContext(),
             android.R.layout.simple_spinner_item,
             viewModel.playersWithPlaceholderAndNobodyArray
-        )
+        ).also { adapter ->
+            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+            binding.whoAnsweredSpinner.adapter = adapter
+        }
         binding.whoAnsweredSpinner.onItemSelectedListener = this
 
         // navigation to main game
