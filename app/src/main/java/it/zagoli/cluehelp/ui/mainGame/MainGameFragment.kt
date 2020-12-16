@@ -1,13 +1,12 @@
 package it.zagoli.cluehelp.ui.mainGame
 
-import android.R
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.findNavController
 import it.zagoli.cluehelp.databinding.MainGameFragmentBinding
 import it.zagoli.cluehelp.domain.Player
@@ -21,7 +20,7 @@ class MainGameFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val viewModel = ViewModelProvider(this).get(MainGameViewModel::class.java)
+        val viewModel : MainGameViewModel by activityViewModels() //shared viewModel
         val binding = MainGameFragmentBinding.inflate(inflater)
         binding.lifecycleOwner = this
 
@@ -31,7 +30,7 @@ class MainGameFragment : Fragment() {
             // definition of an array adapter to show the players in the spinner
             playerAdapter = ArrayAdapter<Player>(
                 requireContext(),
-                R.layout.simple_spinner_item,
+                android.R.layout.simple_spinner_item,
                 viewModel.playersWithPlaceholderAndNobodyArray
             ),
             // we need to pass the players only to calculate the position of selected player in the spinner

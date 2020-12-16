@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.findNavController
 import com.google.android.material.snackbar.Snackbar
 import it.zagoli.cluehelp.R
@@ -23,13 +23,12 @@ import it.zagoli.cluehelp.ui.mainGame.MainGameViewModel
 
 class AddQuestionFragment : Fragment(), AdapterView.OnItemSelectedListener {
 
-    private lateinit var viewModel: MainGameViewModel
+    private val viewModel: MainGameViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        viewModel = ViewModelProvider(this).get(MainGameViewModel::class.java)
         val binding = AddQuestionFragmentBinding.inflate(inflater)
         binding.viewModel = viewModel
 
@@ -121,11 +120,11 @@ class AddQuestionFragment : Fragment(), AdapterView.OnItemSelectedListener {
         }
         if (!invalidSelection) {
             when (parent.id) {
-                R.id.who_asked_spinner -> viewModel.questionQuestioner = (parent.getItemAtPosition(position) as Player)
+                R.id.who_asked_spinner -> viewModel.questionAsks = (parent.getItemAtPosition(position) as Player)
                 R.id.suspect_spinner -> viewModel.questionSuspect = (parent.getItemAtPosition(position) as GameObject)
                 R.id.weapon_spinner -> viewModel.questionWeapon = (parent.getItemAtPosition(position) as GameObject)
                 R.id.room_spinner -> viewModel.questionRoom = (parent.getItemAtPosition(position) as GameObject)
-                R.id.who_answered_spinner -> viewModel.questionQuestioned = (parent.getItemAtPosition(position) as Player)
+                R.id.who_answered_spinner -> viewModel.questionAnswers = (parent.getItemAtPosition(position) as Player)
             }
         }
     }
