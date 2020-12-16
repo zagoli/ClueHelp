@@ -32,7 +32,9 @@ class MutableLiveList<T>: MutableLiveData<MutableList<T>>() {
         }
     }
 
-    private fun notifyObservers() {
+    // I wanted this to be private, but it's necessary to call when the content of
+    // the objects of the list gets updated (no elements added/removed)
+    fun notifyObservers() {
         this.value = this.value
     }
 

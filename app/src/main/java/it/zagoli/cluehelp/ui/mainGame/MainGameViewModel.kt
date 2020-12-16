@@ -141,22 +141,30 @@ class MainGameViewModel(application: Application) : AndroidViewModel(application
         val newGameObjectsSet: MutableSet<GameObject> = mutableSetOf()
         questionList.forEachValidQuestion { question ->
             // at this point the gameObject owner should be not null
-            if (question.gameObjects.containsGameObject(gameObject) && gameObject.owner != question.answers) {
-                question.gameObjects.gowFromGameObject(gameObject).invalidate()
-            }
-            // if only one valid object in question
-            if (question.validObjectsNumber == 1) {
-                question.invalidate()
-                val newObj = question.firstValidObject
-                if (newObj.owner == null) {
-                    newObj.owner = question.answers
-                    newGameObjectsSet.add(newObj)
+            if (question.gameObjects.containsGameObject(gameObject)) {
+                if (gameObject.owner != question.answers) {
+                    question.gameObjects.gowFromGameObject(gameObject).invalidate()
+                    // if only one valid object in question. We check this here since we can invalidate only one object
+                    // at a time, and we don't want to check if we didn't invalidate anything.
+                    if (question.validObjectsNumber == 1) {
+                        question.invalidate()
+                        val newObj = question.firstValidObject
+                        if (newObj.owner == null) {
+                            newObj.owner = question.answers
+                            newGameObjectsSet.add(newObj)
+                        }
+                    }
+                } else {
+                    // the question is answered by the game object owner, so it's useless
+                    question.invalidate()
                 }
             }
         }
         for (newObj in newGameObjectsSet) {
             newObjectOwnerDiscovered(newObj)
         }
+        // update screen with new objects
+        _gameObjects.notifyObservers()
     }
 
     /**
@@ -222,6 +230,7 @@ class MainGameViewModel(application: Application) : AndroidViewModel(application
     init {
         // initialize the list with the previously collected data
         _gameObjects.addAll(TempStore.gameObjects)
+        // here we should clean the previous data if we returned here after the first match
     }
 
 }
