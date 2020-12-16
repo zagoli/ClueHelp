@@ -143,7 +143,7 @@
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/add_question_fab"
             style="@style/fabStyle"
-            android:onClick="@{() -> viewModel.navigateToMainGameAndAddQuestion()}"
+            android:onClick="@{() -> viewModel.addQuestionAndNavigateToMainGame()}"
             android:src="@drawable/ic_baseline_done_24"
             android:contentDescription="@string/add_question_fab_description" />
 

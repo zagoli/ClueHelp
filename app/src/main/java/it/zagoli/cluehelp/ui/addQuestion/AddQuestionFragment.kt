@@ -20,6 +20,7 @@ import it.zagoli.cluehelp.extensions.suspects
 import it.zagoli.cluehelp.extensions.weapons
 import it.zagoli.cluehelp.ui.NavigationStatus
 import it.zagoli.cluehelp.ui.mainGame.MainGameViewModel
+import timber.log.Timber
 
 class AddQuestionFragment : Fragment(), AdapterView.OnItemSelectedListener {
 
@@ -107,9 +108,9 @@ class AddQuestionFragment : Fragment(), AdapterView.OnItemSelectedListener {
         viewModel.navigationAddQuestionToMainGameEvent.observe(viewLifecycleOwner, { shouldNavigate ->
             when (shouldNavigate) {
                 NavigationStatus.OK -> {
-                    viewModel.navigateToMainGameAndAddQuestion()
                     binding.root.findNavController().navigate(AddQuestionFragmentDirections.actionAddQuestionFragmentToMainGameFragment())
                     viewModel.questionAddedNavigationComplete()
+                    Timber.i("Navigation to mainGame from add question")
                 }
                 NavigationStatus.IMPOSSIBLE -> {
                     Snackbar.make(

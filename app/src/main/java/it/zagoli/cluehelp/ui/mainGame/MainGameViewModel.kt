@@ -4,7 +4,6 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import it.zagoli.cluehelp.BuildConfig
 import it.zagoli.cluehelp.ClueHelpApplication
 import it.zagoli.cluehelp.R
 import it.zagoli.cluehelp.domain.GameObject
@@ -62,7 +61,7 @@ class MainGameViewModel(application: Application) : AndroidViewModel(application
     /**
      * this function will trigger navigation to main game and adding a new question if the conditions are met.
      */
-    fun navigateToMainGameAndAddQuestion() {
+    fun addQuestionAndNavigateToMainGame() {
         if (questionAsks != null &&
             questionSuspect != null &&
             questionWeapon != null &&
