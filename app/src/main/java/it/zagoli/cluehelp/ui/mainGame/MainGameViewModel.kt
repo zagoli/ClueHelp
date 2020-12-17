@@ -14,6 +14,8 @@ import it.zagoli.cluehelp.ui.TempStore
 import it.zagoli.cluehelp.ui.NavigationStatus
 import timber.log.Timber
 
+// FIXME: we cannot start two games in a row because data will remain in the viewModel.
+//  We should create another activity for this viewModel
 /**
  * shared viewModel for MainGameFragment, AddQuestionFragment
  */
@@ -84,6 +86,8 @@ class MainGameViewModel(application: Application) : AndroidViewModel(application
             //navigate
             _navigationAddQuestionToMainGameEvent.value = NavigationStatus.OK
         } else {
+            // TODO: check if questionAsks != questionAnswers, use a different navigationStatus
+            //  with this case e make another snackBar
             _navigationAddQuestionToMainGameEvent.value = NavigationStatus.IMPOSSIBLE
         }
     }
@@ -96,6 +100,8 @@ class MainGameViewModel(application: Application) : AndroidViewModel(application
     }
 
     // -------------------------------------------MAIN GAME--------------------------------------------------
+
+    // TODO: add coroutines to newObject, newQuestion and check question when you are capable of
 
     /**
      * list of players
@@ -151,6 +157,7 @@ class MainGameViewModel(application: Application) : AndroidViewModel(application
                         val newObj = question.firstValidObject
                         if (newObj.owner == null) {
                             newObj.owner = question.answers
+                            newObj.setOwnerCalculated()
                             newGameObjectsSet.add(newObj)
                         }
                     }
@@ -202,6 +209,7 @@ class MainGameViewModel(application: Application) : AndroidViewModel(application
             question.invalidate()
             val newGameObject = question.firstValidObject
             newGameObject.owner = question.answers
+            newGameObject.setOwnerCalculated()
             newObjectOwnerDiscovered(newGameObject)
         }
         checkQuestionsNotOwnedObjects()
@@ -222,6 +230,7 @@ class MainGameViewModel(application: Application) : AndroidViewModel(application
                 question.invalidate()
                 val newGameObject = question.firstValidObject
                 newGameObject.owner = question.answers
+                newGameObject.setOwnerCalculated()
                 newObjectOwnerDiscovered(newGameObject)
             }
         }
@@ -230,7 +239,6 @@ class MainGameViewModel(application: Application) : AndroidViewModel(application
     init {
         // initialize the list with the previously collected data
         _gameObjects.addAll(TempStore.gameObjects)
-        // here we should clean the previous data if we returned here after the first match
     }
 
 }

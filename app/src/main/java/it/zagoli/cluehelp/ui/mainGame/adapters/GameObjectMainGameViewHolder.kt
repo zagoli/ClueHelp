@@ -1,8 +1,11 @@
 package it.zagoli.cluehelp.ui.mainGame.adapters
 
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
+import android.widget.TextView
+import androidx.core.view.get
 import androidx.recyclerview.widget.RecyclerView
 import it.zagoli.cluehelp.databinding.MainGameListElementBinding
 import it.zagoli.cluehelp.domain.GameObject
@@ -28,7 +31,8 @@ class GameObjectMainGameViewHolder(
         selectedPlayerPosition: Int
     ) {
         playerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        binding.spinnerGameObjectOwner
+        // we enable the view in case this was an already used and disabled view
+        binding.spinnerGameObjectOwner.isEnabled = true
         binding.spinnerGameObjectOwner.adapter = playerAdapter
         binding.spinnerGameObjectOwner.onItemSelectedListener = GameObjectMainGameListener(viewModel = viewModel, gameObject = gameObject)
         binding.spinnerGameObjectOwner.setSelection(selectedPlayerPosition)

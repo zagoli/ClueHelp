@@ -41,8 +41,7 @@ class MainGameFragment : Fragment() {
         // update the gameObjects recyclerview on screen
         viewModel.gameObjects.observe(viewLifecycleOwner, {
             it?.let {
-                // same hack as always
-                gameObjectMainGameAdapter.addHeadersAndSubmitList(ArrayList(it))
+                gameObjectMainGameAdapter.addHeadersAndSubmitList(it)
             }
         })
 

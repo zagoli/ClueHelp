@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="gameObject"
             type="it.zagoli.cluehelp.domain.GameObject" />
@@ -17,12 +18,13 @@
         <TextView
             android:id="@+id/game_object_name"
             style="@style/textListElementRecyclerView"
-            android:text="@{gameObject.name}"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="@{gameObject.name}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
+            app:gameObjectColor="@{gameObject}"
             tools:text="@string/Plum" />
 
         <Spinner

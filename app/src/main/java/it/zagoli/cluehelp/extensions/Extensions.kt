@@ -1,7 +1,9 @@
 package it.zagoli.cluehelp.extensions
 
 import android.widget.TextView
+import androidx.core.content.ContextCompat
 import androidx.databinding.BindingAdapter
+import it.zagoli.cluehelp.R
 import it.zagoli.cluehelp.domain.GameObject
 import it.zagoli.cluehelp.domain.GameObjectType
 import it.zagoli.cluehelp.domain.Player
@@ -102,4 +104,14 @@ fun List<GameObjectWrapper>.gowFromGameObject(gameObject: GameObject): GameObjec
 @BindingAdapter("headerText")
 fun TextView.setHeaderText(resId: Int) {
     this.text = context.getText(resId)
+}
+
+/**
+ * adapter to color the text if the object was discovered by machine
+ */
+@BindingAdapter("gameObjectColor")
+fun TextView.gameObjectColor(gameObject: GameObject) {
+    if (gameObject.isOwnerCalculated) {
+        this.setTextColor(ContextCompat.getColor(this.context, R.color.secondaryDarkColor))
+    }
 }

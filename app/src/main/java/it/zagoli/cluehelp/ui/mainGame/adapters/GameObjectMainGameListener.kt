@@ -1,7 +1,9 @@
 package it.zagoli.cluehelp.ui.mainGame.adapters
 
+import android.graphics.Color
 import android.view.View
 import android.widget.AdapterView
+import android.widget.TextView
 import it.zagoli.cluehelp.domain.GameObject
 import it.zagoli.cluehelp.domain.Player
 import it.zagoli.cluehelp.ui.mainGame.MainGameViewModel
@@ -18,7 +20,7 @@ class GameObjectMainGameListener(
         // problem: recyclerview recreates the spinner every time it exits and the re-enter the screen.
         // so, every time it will assign a new Listener to it. This will trigger a "onItemSelectedEvent".
         // we want to avoid this, so when this method is called we'll check if the gameObject passed is already
-        // associated with an owner. If yes, we''l ignore the event
+        // associated with an owner. If yes, we'll ignore the event
         if (player.name != "" && gameObject.owner == null) {
             gameObject.owner = player
             viewModel.newObjectOwnerDiscovered(gameObject)
