@@ -59,6 +59,9 @@
         <action
             android:id="@+id/action_mainGameFragment_to_addQuestionFragment"
             app:destination="@id/addQuestionFragment" />
+        <action
+            android:id="@+id/action_mainGameFragment_to_allQuestionsFragment"
+            app:destination="@id/menu_item_all_questions" />
     </fragment>
     <fragment
         android:id="@+id/addQuestionFragment"
@@ -70,4 +73,9 @@
             app:destination="@id/mainGameFragment"
             app:popUpTo="@id/welcomeFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/menu_item_all_questions"
+        android:name="it.zagoli.cluehelp.ui.allQuestions.AllQuestionsFragment"
+        android:label="@string/all_questions_fragment_label"
+        tools:layout="@layout/all_questions_fragment" />
 </navigation>

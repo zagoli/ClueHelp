@@ -108,7 +108,7 @@ class AddQuestionFragment : Fragment(), AdapterView.OnItemSelectedListener {
         viewModel.navigationAddQuestionToMainGameEvent.observe(viewLifecycleOwner, { shouldNavigate ->
             when (shouldNavigate) {
                 NavigationStatus.OK -> {
-                    binding.root.findNavController().navigate(AddQuestionFragmentDirections.actionAddQuestionFragmentToMainGameFragment())
+                    binding.root.findNavController().navigate(R.id.action_addQuestionFragment_to_mainGameFragment)
                     viewModel.questionAddedNavigationComplete()
                     Timber.i("Navigation to mainGame from add question")
                 }

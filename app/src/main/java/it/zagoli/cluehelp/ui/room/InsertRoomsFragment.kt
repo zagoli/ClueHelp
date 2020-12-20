@@ -55,7 +55,7 @@ class InsertRoomsFragment : Fragment() {
         viewModel.navigateMainGameEvent.observe(viewLifecycleOwner, {shouldNavigate ->
             when (shouldNavigate) {
                 NavigationStatus.OK -> {
-                    binding.root.findNavController().navigate(InsertRoomsFragmentDirections.actionInsertRoomsFragmentToMainGameFragment())
+                    binding.root.findNavController().navigate(R.id.action_insertRoomsFragment_to_mainGameFragment)
                     viewModel.navigateToMainGameComplete()
                     Timber.i("rooms: ${TempStore.gameObjects.rooms.map(GameObject::name)}")
                     Timber.i("navigation to main game.")

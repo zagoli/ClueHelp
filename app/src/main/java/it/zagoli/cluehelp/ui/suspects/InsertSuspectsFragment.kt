@@ -55,7 +55,7 @@ class InsertSuspectsFragment : Fragment() {
         viewModel.navigateInsertWeaponsEvent.observe(viewLifecycleOwner, {shouldNavigate ->
             when (shouldNavigate) {
                 NavigationStatus.OK -> {
-                    binding.root.findNavController().navigate(InsertSuspectsFragmentDirections.actionInsertSuspectsFragmentToInsertWeaponsFragment())
+                    binding.root.findNavController().navigate(R.id.action_insertSuspectsFragment_to_insertWeaponsFragment)
                     viewModel.navigateToInsertWeaponsComplete()
                     Timber.i("suspects: ${TempStore.gameObjects.suspects.map(GameObject::name)}")
                     Timber.i("navigation to insert weapons.")

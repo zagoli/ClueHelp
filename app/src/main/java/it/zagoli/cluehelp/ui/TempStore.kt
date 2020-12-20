@@ -2,7 +2,11 @@ package it.zagoli.cluehelp.ui
 
 import it.zagoli.cluehelp.domain.GameObject
 import it.zagoli.cluehelp.domain.Player
+import it.zagoli.cluehelp.domain.Question
 
+/**
+ * I can't use parcelables object so this is a sort of hack
+ */
 abstract class TempStore {
     companion object {
         /**
@@ -15,6 +19,10 @@ abstract class TempStore {
          * used to store the players list temporarily.
          * it's a [MutableList] because we need to incrementally add values to it (three times)
          */
-        var gameObjects: MutableList<GameObject> = mutableListOf()
+        val gameObjects: MutableList<GameObject> = mutableListOf()
+        /**
+         * used to pass questions from main game to all questions
+         */
+        lateinit var questions: MutableList<Question>
     }
 }

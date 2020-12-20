@@ -52,7 +52,7 @@ class InsertPlayersFragment : Fragment() {
         viewModel.navigateInsertSuspectsEvent.observe(viewLifecycleOwner, { shouldNavigate ->
             when (shouldNavigate) {
                 NavigationStatus.OK -> {
-                    binding.root.findNavController().navigate(InsertPlayersFragmentDirections.actionInsertPlayersFragmentToInsertSuspectsFragment())
+                    binding.root.findNavController().navigate(R.id.action_insertPlayersFragment_to_insertSuspectsFragment)
                     viewModel.navigateToInsertSuspectsComplete()
                     Timber.i("navigation to insert suspects.")
                     Timber.i("players: ${TempStore.players.map(Player::name)}")

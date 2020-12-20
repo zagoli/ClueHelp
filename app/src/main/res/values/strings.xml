@@ -58,5 +58,9 @@
     <string name="add_question_fab_description">add question</string>
     <string name="add_question_fragment_label">Add a question</string>
     <string name="fill_all_question_fields">Please, fill all the fields first!</string>
+    <string name="all_questions_fragment_label">Questions list</string>
+    <string name="menu_all_questions">All questions list</string>
+    <string name="question_who_asked_short">Asks</string>
+    <string name="question_who_answered_short">Answers</string>
 
 </resources>

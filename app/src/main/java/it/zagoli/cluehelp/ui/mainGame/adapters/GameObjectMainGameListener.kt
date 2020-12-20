@@ -1,20 +1,17 @@
 package it.zagoli.cluehelp.ui.mainGame.adapters
 
-import android.graphics.Color
 import android.view.View
 import android.widget.AdapterView
-import android.widget.TextView
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import it.zagoli.cluehelp.domain.GameObject
 import it.zagoli.cluehelp.domain.Player
 import it.zagoli.cluehelp.ui.mainGame.MainGameViewModel
 
-class GameObjectMainGameListener(
-    private val viewModel: MainGameViewModel,
-    private val gameObject: GameObject
-) :
-    AdapterView.OnItemSelectedListener {
+class GameObjectMainGameListener(private val viewModel: MainGameViewModel, private val gameObject: GameObject) : AdapterView.OnItemSelectedListener {
 
     override fun onItemSelected(parent: AdapterView<*>, view: View, position: Int, id: Long) {
+
         val player = parent.getItemAtPosition(position) as Player
         // if the selected player is not the placeholder player
         // problem: recyclerview recreates the spinner every time it exits and the re-enter the screen.

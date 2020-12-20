@@ -8,6 +8,7 @@ data class Question(
     val answers: Player,
     private var isValid: Boolean = true
 ) {
+
     fun isValid(): Boolean {
         return isValid
     }

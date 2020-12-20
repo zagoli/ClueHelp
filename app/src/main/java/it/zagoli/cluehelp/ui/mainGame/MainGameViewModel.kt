@@ -126,6 +126,11 @@ class MainGameViewModel(application: Application) : AndroidViewModel(application
         }
 
     /**
+     * container for all the questions
+     */
+    private val questionList: MutableList<Question> = mutableListOf()
+
+    /**
      * backing property for [gameObjects]
      */
     private val _gameObjects = MutableLiveList<GameObject>()
@@ -141,6 +146,7 @@ class MainGameViewModel(application: Application) : AndroidViewModel(application
      * Only this method updates the screen!
      * @param gameObject is the object with the new owner
      */
+    // FIXME: the friggin refresh of the entire friggin screen
     fun newObjectOwnerDiscovered(gameObject: GameObject) {
         Timber.i("new object owner: ${gameObject.owner?.name} for object ${gameObject.name}")
         // this set holds the new other objects that we may discover to process them later.
@@ -173,11 +179,6 @@ class MainGameViewModel(application: Application) : AndroidViewModel(application
         // update screen with new objects
         _gameObjects.notifyObservers()
     }
-
-    /**
-     * container for all the questions
-     */
-    private val questionList: MutableList<Question> = mutableListOf()
 
     /**
      * this function performs the calculations after a new question is added
@@ -234,6 +235,32 @@ class MainGameViewModel(application: Application) : AndroidViewModel(application
                 newObjectOwnerDiscovered(newGameObject)
             }
         }
+    }
+
+    /**
+     * backing property for [navigationAllQuestionsEvent]
+     */
+    private val _navigationAllQuestionsEvent = MutableLiveData<Boolean>()
+
+    /**
+     * navigation event to navigationAllQuestionsEvent
+     */
+    val navigationAllQuestionsEvent: LiveData<Boolean>
+        get() = _navigationAllQuestionsEvent
+
+    /**
+     * this function will trigger navigation to all questions fragment
+     */
+    fun navigateAllQuestions() {
+        TempStore.questions = questionList
+        _navigationAllQuestionsEvent.value = true
+    }
+
+    /**
+     * to call after navigating to all questions fragment
+     */
+    fun onNavigatedAllQuestions() {
+        _navigationAllQuestionsEvent.value = false
     }
 
     init {
