@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import it.zagoli.cluehelp.R
 import it.zagoli.cluehelp.databinding.AllQuestionsFragmentBinding
 
 class AllQuestionsFragment : Fragment() {
@@ -25,6 +26,17 @@ class AllQuestionsFragment : Fragment() {
                 adapter.submitList(ArrayList(it))
             }
         })
+
+        // chips listener
+        binding.chipGroup.setOnCheckedChangeListener { _ , chipId ->
+            when (chipId) {
+                R.id.chip_asks -> viewModel.sortQuestionsByWhoAsks()
+                R.id.chip_suspect -> viewModel.sortQuestionsBySuspects()
+                R.id.chip_weapon -> viewModel.sortQuestionsByWeapons()
+                R.id.chip_room -> viewModel.sortQuestionsByRooms()
+                R.id.chip_answers -> viewModel.sortQuestionsByWhoAnswers()
+            }
+        }
 
         return binding.root
     }

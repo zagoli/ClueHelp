@@ -1,6 +1,6 @@
 package it.zagoli.cluehelp.extensions
 
-import android.widget.LinearLayout
+import com.google.android.material.card.MaterialCardView
 import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.databinding.BindingAdapter
@@ -113,14 +113,10 @@ fun TextView.setHeaderText(resId: Int) {
 @BindingAdapter("gameObjectColor")
 fun TextView.gameObjectColor(gameObject: GameObject) {
     if (gameObject.isOwnerCalculated) {
-        this.setTextColor(ContextCompat.getColor(this.context, R.color.secondaryDarkColor))
+        this.setTextColor(ContextCompat.getColor(this.context, R.color.primaryLightColor))
     }
 }
 
-/**
- * transparency value for invalid objects/questions
- */
-private const val alphaValue = 0.4F
 
 /**
  * adapter to set up the textView corresponding to the suspect in all questions list
@@ -130,7 +126,7 @@ fun TextView.suspectQuestionList(question: Question) {
     val suspectWrapper = question.gameObjects[0]
     this.text = suspectWrapper.gameObject.name
     if (!suspectWrapper.isValid() && question.isValid()) {
-        this.alpha = alphaValue
+        this.setTextColor(ContextCompat.getColor(this.context, R.color.primaryTransparentColor))
     }
 }
 
@@ -142,7 +138,7 @@ fun TextView.weaponQuestionList(question: Question) {
     val weaponWrapper = question.gameObjects[1]
     this.text = weaponWrapper.gameObject.name
     if (!weaponWrapper.isValid() && question.isValid()) {
-        this.alpha = alphaValue
+        this.setTextColor(ContextCompat.getColor(this.context, R.color.primaryTransparentColor))
     }
 }
 
@@ -154,7 +150,7 @@ fun TextView.roomQuestionList(question: Question) {
     val roomWrapper = question.gameObjects[2]
     this.text = roomWrapper.gameObject.name
     if (!roomWrapper.isValid() && question.isValid()) {
-        this.alpha = alphaValue
+        this.setTextColor(ContextCompat.getColor(this.context, R.color.primaryTransparentColor))
     }
 }
 
@@ -162,8 +158,8 @@ fun TextView.roomQuestionList(question: Question) {
  * adapter used to set the transparency for an invalid question
  */
 @BindingAdapter("validQuestion")
-fun LinearLayout.validQuestion(question: Question) {
+fun MaterialCardView.validQuestion(question: Question) {
     if (!question.isValid()) {
-        this.alpha = alphaValue
+        this.setCardForegroundColor(ContextCompat.getColorStateList(this.context, R.color.primaryTransparentColor))
     }
 }

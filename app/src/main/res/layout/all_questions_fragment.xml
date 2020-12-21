@@ -3,73 +3,89 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <LinearLayout
-            android:id="@+id/question_titles"
-            android:layout_width="match_parent"
+        <HorizontalScrollView
+            android:id="@+id/chips_scrollView"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/small_margin"
             android:layout_marginTop="@dimen/small_margin"
-            android:orientation="horizontal"
-            android:paddingStart="@dimen/small_margin"
-            android:paddingEnd="@dimen/small_margin"
+            android:layout_marginEnd="@dimen/small_margin"
+            android:scrollbars="none"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
-            <TextView
+            <com.google.android.material.chip.ChipGroup
+                android:id="@+id/chip_group"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/question_who_asked_short"
-                android:textStyle="bold" />
+                app:singleLine="true"
+                app:singleSelection="true">
 
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/insert_new_suspects_hint_text"
-                android:textStyle="bold" />
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chip_asks"
+                    style="@style/Widget.MaterialComponents.Chip.Choice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/question_who_asked_short"
+                    app:checkedIconVisible="true"
+                    app:chipBackgroundColor="@color/selected_chip_highlight"
+                    tools:checked="true" />
 
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/insert_new_weapon_hint_text"
-                android:textStyle="bold" />
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chip_suspect"
+                    style="@style/Widget.MaterialComponents.Chip.Choice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/insert_new_suspects_hint_text"
+                    app:checkedIconVisible="true"
+                    app:chipBackgroundColor="@color/selected_chip_highlight" />
 
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/insert_new_room_hint_text"
-                android:textStyle="bold" />
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chip_weapon"
+                    style="@style/Widget.MaterialComponents.Chip.Choice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/insert_new_weapon_hint_text"
+                    app:checkedIconVisible="true"
+                    app:chipBackgroundColor="@color/selected_chip_highlight" />
 
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/question_who_answered_short"
-                android:textStyle="bold" />
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chip_room"
+                    style="@style/Widget.MaterialComponents.Chip.Choice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/insert_new_room_hint_text"
+                    app:checkedIconVisible="true"
+                    app:chipBackgroundColor="@color/selected_chip_highlight" />
 
-        </LinearLayout>
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chip_answers"
+                    style="@style/Widget.MaterialComponents.Chip.Choice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/question_who_answered_short"
+                    app:checkedIconVisible="true"
+                    app:chipBackgroundColor="@color/selected_chip_highlight" />
+
+            </com.google.android.material.chip.ChipGroup>
+
+        </HorizontalScrollView>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/questions_list"
             android:layout_width="0dp"
-            android:layout_height="0dp"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            android:layout_marginStart="@dimen/small_margin"
+            android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/small_margin"
-            android:layout_marginEnd="@dimen/small_margin"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/question_titles"
-            tools:listitem="@layout/question_list_element"/>
+            app:layout_constraintTop_toBottomOf="@+id/chips_scrollView"
+            tools:listitem="@layout/question_list_element" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

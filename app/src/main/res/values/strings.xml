@@ -1,12 +1,12 @@
 <resources>
 
     <!--Suspects-->
-    <string name="Plum">Plum</string>
-    <string name="White">White</string>
-    <string name="Scarlet">Scarlet</string>
-    <string name="Green">Green</string>
-    <string name="Mustard">Mustard</string>
-    <string name="Peacock">Peacock</string>
+    <string name="Plum" translatable="false">Plum</string>
+    <string name="White" translatable="false">White</string>
+    <string name="Scarlet" translatable="false">Scarlet</string>
+    <string name="Green" translatable="false">Green</string>
+    <string name="Mustard" translatable="false">Mustard</string>
+    <string name="Peacock" translatable="false">Peacock</string>
 
     <!--Weapons-->
     <string name="Rope">Rope</string>
@@ -27,7 +27,7 @@
     <string name="Bedroom">Bedroom</string>
     <string name="Bathroom">Bathroom</string>
 
-    <string name="app_name">ClueHelp</string>
+    <string name="app_name" translatable="false">ClueHelp</string>
     <string name="start_button_text">Start!</string>
     <string name="welcome_image_description">Welcome image</string>
     <string name="insert_players_fragment_label">Insert players</string>
@@ -55,7 +55,6 @@
     <string name="weapons_text_question">What is the weapon?</string>
     <string name="room_text_question">What is the room?</string>
     <string name="who_answered_question">Who answered the question?</string>
-    <string name="add_question_fab_description">add question</string>
     <string name="add_question_fragment_label">Add a question</string>
     <string name="fill_all_question_fields">Please, fill all the fields first!</string>
     <string name="all_questions_fragment_label">Questions list</string>

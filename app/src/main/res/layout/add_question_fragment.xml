@@ -145,7 +145,7 @@
             style="@style/fabStyle"
             android:onClick="@{() -> viewModel.addQuestionAndNavigateToMainGame()}"
             android:src="@drawable/ic_baseline_done_24"
-            android:contentDescription="@string/add_question_fab_description" />
+            android:contentDescription="@string/new_question_fab_description" />
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
