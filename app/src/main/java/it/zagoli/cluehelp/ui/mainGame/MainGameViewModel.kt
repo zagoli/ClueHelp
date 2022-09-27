@@ -10,8 +10,8 @@ import it.zagoli.cluehelp.domain.GameObject
 import it.zagoli.cluehelp.domain.Player
 import it.zagoli.cluehelp.domain.Question
 import it.zagoli.cluehelp.extensions.*
-import it.zagoli.cluehelp.ui.TempStore
 import it.zagoli.cluehelp.ui.NavigationStatus
+import it.zagoli.cluehelp.ui.TempStore
 import timber.log.Timber
 
 // FIXME: we cannot start two games in a row because data will remain in the viewModel.
@@ -21,7 +21,7 @@ import timber.log.Timber
  */
 class MainGameViewModel(application: Application) : AndroidViewModel(application) {
 
-    // ------------------------------------------NEW QUESTION---------------------------------------------------
+    // --------------------------NEW QUESTION------------------------------------
     /**
      * backing property for [navigationAddQuestionToMainGameEvent]
      */
@@ -64,12 +64,7 @@ class MainGameViewModel(application: Application) : AndroidViewModel(application
      * this function will trigger navigation to main game and adding a new question if the conditions are met.
      */
     fun addQuestionAndNavigateToMainGame() {
-        if (questionAsks != null &&
-            questionSuspect != null &&
-            questionWeapon != null &&
-            questionRoom != null &&
-            questionAnswers != null
-        ) {
+        if (questionAsks != null && questionSuspect != null && questionWeapon != null && questionRoom != null && questionAnswers != null) {
             val gameObjectList = mutableListOf(
                 GameObjectWrapper(questionSuspect!!),
                 GameObjectWrapper(questionWeapon!!),
@@ -87,7 +82,7 @@ class MainGameViewModel(application: Application) : AndroidViewModel(application
             _navigationAddQuestionToMainGameEvent.value = NavigationStatus.OK
         } else {
             // TODO: check if questionAsks != questionAnswers, use a different navigationStatus
-            //  with this case e make another snackBar
+            //  with this case and make another snackBar
             _navigationAddQuestionToMainGameEvent.value = NavigationStatus.IMPOSSIBLE
         }
     }
@@ -99,7 +94,7 @@ class MainGameViewModel(application: Application) : AndroidViewModel(application
         _navigationAddQuestionToMainGameEvent.value = NavigationStatus.DONE
     }
 
-    // -------------------------------------------MAIN GAME--------------------------------------------------
+    // -------------------------MAIN GAME--------------------------------------------------
 
     // TODO: add coroutines to newObject, newQuestion and check question when you are capable of
 
@@ -146,17 +141,19 @@ class MainGameViewModel(application: Application) : AndroidViewModel(application
      * Only this method updates the screen!
      * @param gameObject is the object with the new owner
      */
-    // FIXME: the friggin refresh of the entire friggin screen
+    // FIXME: the refresh of the entire screen
     fun newObjectOwnerDiscovered(gameObject: GameObject) {
         Timber.i("new object owner: ${gameObject.owner?.name} for object ${gameObject.name}")
         // this set holds the new other objects that we may discover to process them later.
         val newGameObjectsSet: MutableSet<GameObject> = mutableSetOf()
+
         questionList.forEachValidQuestion { question ->
             // at this point the gameObject owner should be not null
             if (question.gameObjects.containsGameObject(gameObject)) {
                 if (gameObject.owner != question.answers) {
                     question.gameObjects.gowFromGameObject(gameObject).invalidate()
-                    // if only one valid object in question. We check this here since we can invalidate only one object
+                    // if only one valid object in question.
+                    // We check this here since we can invalidate only one object
                     // at a time, and we don't want to check if we didn't invalidate anything.
                     if (question.validObjectsNumber == 1) {
                         question.invalidate()
@@ -173,6 +170,7 @@ class MainGameViewModel(application: Application) : AndroidViewModel(application
                 }
             }
         }
+
         for (newObj in newGameObjectsSet) {
             newObjectOwnerDiscovered(newObj)
         }
@@ -185,56 +183,84 @@ class MainGameViewModel(application: Application) : AndroidViewModel(application
      * @param question the new question added
      */
     private fun addNewQuestion(question: Question) {
-        Timber.i("question number ${questionList.size+1} added.")
         questionList.add(question)
+        Timber.i("question number ${questionList.size + 1} added.")
         // adding items in players not owned objects list. See flowcharts for better explanation
         players.forFromPlayerUntilPlayer(question.asks, question.answers) { player ->
-            player.notOwnedGameObjects.addAll(question.gameObjects.map { gameObjectWrapper -> gameObjectWrapper.gameObject })
+            player.notOwnedGameObjects.addAll(question.gameObjects.map { gameObjectWrapper ->
+                gameObjectWrapper.gameObject
+            })
         }
+        checkQuestionsNotOwnedObjects()
+
         // question contains object owned by questioned player
         for (gameObject in question.gameObjects.map { gameObjectWrapper -> gameObjectWrapper.gameObject }) {
             if (gameObject.owner != null && gameObject.owner == question.answers) {
                 question.invalidate()
-                checkQuestionsNotOwnedObjects()
                 return
             }
         }
-        // invalidate objects owner by others
+
+        // invalidate objects owner by other players
         for (gow in question.gameObjects) {
-            if (gow.isValid() && gow.gameObject.owner != null && gow.gameObject.owner != question.answers) {
+            if (gow.isValid()                       &&
+                gow.gameObject.owner != null        &&
+                gow.gameObject.owner != question.answers) {
                 gow.invalidate()
             }
         }
-        // valid objects == 1?
+        // if valid objects == 1, new object owner discovered
         if (question.validObjectsNumber == 1) {
-            question.invalidate()
-            val newGameObject = question.firstValidObject
-            newGameObject.owner = question.answers
-            newGameObject.setOwnerCalculated()
-            newObjectOwnerDiscovered(newGameObject)
+            invalidateQuestionNewObjOwner(question)
         }
-        checkQuestionsNotOwnedObjects()
     }
 
     /**
-     * checks all the questions in [questionList]: eliminates from the question
-     * objects that aren't owned by the player who answered
+     * First checks all the questions in [questionList]: eliminates from the question
+     * objects that aren't owned by the player who answered.
+     * Then checks all objects: if the same object is in all list of not owned objects,
+     * "nobody" has it so it's in the envelope.
      */
     private fun checkQuestionsNotOwnedObjects() {
+        // First part
         questionList.forEachValidQuestion { question ->
             for (gow in question.gameObjects) {
                 if (question.answers.notOwnedGameObjects.contains(gow.gameObject)) {
                     gow.invalidate()
                 }
             }
+            // if there's only one valid object, we discovered a new object owner
             if (question.validObjectsNumber == 1) {
-                question.invalidate()
-                val newGameObject = question.firstValidObject
-                newGameObject.owner = question.answers
-                newGameObject.setOwnerCalculated()
-                newObjectOwnerDiscovered(newGameObject)
+                invalidateQuestionNewObjOwner(question)
             }
         }
+        // Second part
+        for (obj in gameObjects.value!!) {
+            var objInEveryList = true
+            for (player in players) {
+                if (obj !in player.notOwnedGameObjects) {
+                    objInEveryList = false
+                    break
+                }
+            }
+            if (objInEveryList) {
+                obj.owner = nobody
+                obj.setOwnerCalculated()
+                newObjectOwnerDiscovered(obj)
+            }
+        }
+    }
+
+    /**
+     * this function invalidates a question with only one valid object,
+     * since a new object owner is discovered it acts consequently
+     */
+    private fun invalidateQuestionNewObjOwner(question: Question) {
+        question.invalidate()
+        val newGameObject = question.firstValidObject
+        newGameObject.owner = question.answers
+        newGameObject.setOwnerCalculated()
+        newObjectOwnerDiscovered(newGameObject)
     }
 
     /**
